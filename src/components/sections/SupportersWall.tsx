@@ -105,10 +105,10 @@ export function SupportersWall() {
             <Heart size={12} className="fill-amber-400" />
             <span>Verified Community Ledger</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-['Outfit'] font-extrabold text-white mb-3 tracking-tight">
-            SUPPORTERS{' '}
-            <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-200 bg-clip-text text-transparent">
-              WALL
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-2 font-['Outfit']">
+            Supporters{' '}
+            <span className="bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent font-extrabold">
+              wall
             </span>
           </h2>
           <p className="text-slate-400 max-w-xl mx-auto text-sm md:text-base leading-relaxed">

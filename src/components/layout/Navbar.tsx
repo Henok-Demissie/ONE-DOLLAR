@@ -11,6 +11,7 @@ const navLinks = [
   { href: '/#home', label: 'Home' },
   { href: '/#donate', label: 'Donate' },
   { href: '/#hire', label: 'Hire Me' },
+  { href: '/#portfolio', label: 'Portfolio' },
   { href: '/#supporters', label: 'Supporters' },
   { href: '/#about', label: 'About' },
 ];
@@ -60,12 +61,12 @@ export function Navbar() {
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-yellow-500 flex items-center justify-center text-black font-black text-sm shadow-md shadow-amber-500/25">
                 $1
               </div>
-              <div className="flex items-center gap-1 font-['Outfit',sans-serif]">
-                <span className="text-base font-black tracking-tight text-white group-hover:text-amber-400 transition-colors">
-                  ONE DOLLAR
+              <div className="flex items-center gap-1.5 font-['Outfit']">
+                <span className="text-sm sm:text-base font-bold tracking-tight text-white group-hover:text-amber-400 transition-colors">
+                  One Dollar
                 </span>
-                <span className="text-xs font-semibold px-1.5 py-0.5 rounded bg-white/[0.08] text-slate-400 border border-white/[0.06]">
-                  PROJECT
+                <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-white/[0.06] text-slate-400 border border-white/[0.08]">
+                  Project
                 </span>
               </div>
             </Link>
@@ -88,10 +89,10 @@ export function Navbar() {
               <Button
                 variant="primary"
                 size="sm"
-                className="hidden md:inline-flex text-xs px-4"
+                className="hidden md:inline-flex text-xs px-4 font-semibold tracking-wide"
                 onClick={() => handleNavClick('/#donate')}
               >
-                DONATE $1
+                Donate $1
               </Button>
               <button
                 onClick={() => setMenuOpen(!menuOpen)}

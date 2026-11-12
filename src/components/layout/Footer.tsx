@@ -46,8 +46,8 @@ export function Footer() {
               <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center font-['Outfit'] font-black text-black text-sm shadow-[0_0_15px_rgba(245,158,11,0.3)]">
                 $1
               </div>
-              <span className="text-xl font-['Outfit'] font-extrabold tracking-tight text-white">
-                ONE DOLLAR <span className="text-slate-500 font-medium">PROJECT</span>
+              <span className="text-lg font-['Outfit'] font-bold tracking-tight text-white">
+                One Dollar <span className="text-slate-500 font-normal">Project</span>
               </span>
             </div>
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">

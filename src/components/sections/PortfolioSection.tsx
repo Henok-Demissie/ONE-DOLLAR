@@ -93,10 +93,10 @@ export function PortfolioSection() {
             <Layers size={12} className="text-sky-400" />
             <span>Engineering Showcase</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-['Outfit'] font-extrabold text-white mb-3 tracking-tight">
-            FEATURED{' '}
-            <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-200 bg-clip-text text-transparent">
-              PORTFOLIO
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-2.5 font-['Outfit']">
+            Featured{' '}
+            <span className="bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent font-extrabold">
+              portfolio
             </span>
           </h2>
           <p className="text-slate-400 max-w-xl mx-auto text-sm md:text-base leading-relaxed">

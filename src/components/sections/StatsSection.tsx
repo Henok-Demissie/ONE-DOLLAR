@@ -138,17 +138,18 @@ export function StatsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-widest text-amber-400 bg-amber-500/10 border border-amber-500/20 mb-3">
-            Real-time Telemetry
-          </span>
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-2 font-['Outfit',sans-serif]">
-            THE DREAM IN{' '}
-            <span className="bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent">
-              NUMBERS
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide text-amber-300 bg-amber-400/5 border border-amber-400/20 mb-3 backdrop-blur-md">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+            <span>Live Telemetry</span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-2 font-['Outfit']">
+            The dream in{' '}
+            <span className="bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent font-extrabold">
+              numbers
             </span>
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto text-sm">
-            Every dollar matters. Every supporter counts. All figures derive from verified on-chain and bank settlements.
+          <p className="text-slate-400 max-w-xl mx-auto text-sm leading-relaxed">
+            Every dollar matters. All metrics update live from on-chain transactions and verified bank deposits.
           </p>
         </motion.div>
 

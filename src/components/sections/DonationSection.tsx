@@ -444,10 +444,10 @@ export function DonationSection() {
             <Sparkles size={12} className="text-amber-400" />
             <span>Multi-Rail Contribution Hub</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-['Outfit'] font-extrabold text-white mb-3 tracking-tight">
-            SUPPORT THE{' '}
-            <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-200 bg-clip-text text-transparent">
-              DREAM
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-2.5 font-['Outfit']">
+            Support the{' '}
+            <span className="bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent font-extrabold">
+              dream
             </span>
           </h2>
           <p className="text-slate-400 text-sm md:text-base font-normal max-w-lg mx-auto">

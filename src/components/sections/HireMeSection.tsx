@@ -176,10 +176,10 @@ export function HireMeSection() {
             <Briefcase size={12} className="text-sky-400" />
             <span>Services &amp; Engineering Consultation</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-['Outfit'] font-extrabold text-white mb-4 tracking-tight">
-            LET&apos;S BUILD SOMETHING{' '}
-            <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-200 bg-clip-text text-transparent">
-              GREAT TOGETHER.
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-3 font-['Outfit']">
+            Let&apos;s build something{' '}
+            <span className="bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent font-extrabold">
+              great together.
             </span>
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">

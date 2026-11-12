@@ -69,10 +69,10 @@ export function AboutSection() {
             <UserCheck size={12} className="text-amber-400" />
             <span>The Story Behind The Dream</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-['Outfit'] font-extrabold text-white tracking-tight">
-            ABOUT{' '}
-            <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-200 bg-clip-text text-transparent">
-              THE BUILDER
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-2 font-['Outfit']">
+            About{' '}
+            <span className="bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent font-extrabold">
+              the builder
             </span>
           </h2>
         </motion.div>
