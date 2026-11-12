@@ -42,12 +42,12 @@ function SuccessContent() {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: 'spring', stiffness: 200, delay: 0.15 }}
-            className="w-20 h-20 rounded-full bg-green-500/15 border-2 border-green-500 flex items-center justify-center mx-auto mb-6"
+            className="w-20 h-20 rounded-full bg-[#0DCB3D]/15 border-2 border-[#0DCB3D] flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(13,203,61,0.35)]"
           >
-            <CheckCircle2 size={40} className="text-green-400" />
+            <CheckCircle2 size={40} className="text-[#0DCB3D]" />
           </motion.div>
 
-          <h1 className="text-3xl md:text-4xl font-black tracking-tight bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent mb-4">
+          <h1 className="text-3xl md:text-4xl font-black tracking-tight bg-gradient-to-r from-[#0DCB3D] via-[#1EE94F] to-[#2cf05d] bg-clip-text text-transparent mb-4">
             THANK YOU FOR BEING PART OF THE DREAM!
           </h1>
 
@@ -59,7 +59,7 @@ function SuccessContent() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-8">
             <div className="p-4 rounded-xl border border-[#222] bg-[#0d0d0d]">
               <p className="text-xs text-gray-500 uppercase tracking-wider">Amount</p>
-              <p className="text-xl font-black text-amber-400 mt-1">${amount} USD</p>
+              <p className="text-xl font-black text-[#0DCB3D] mt-1">${amount} USD</p>
             </div>
             <div className="p-4 rounded-xl border border-[#222] bg-[#0d0d0d]">
               <p className="text-xs text-gray-500 uppercase tracking-wider">Currency</p>
@@ -67,7 +67,7 @@ function SuccessContent() {
             </div>
             <div className="p-4 rounded-xl border border-[#222] bg-[#0d0d0d]">
               <p className="text-xs text-gray-500 uppercase tracking-wider">Tx Reference</p>
-              <p className="text-sm font-mono text-emerald-400 mt-1 break-all">{reference}</p>
+              <p className="text-sm font-mono text-[#0DCB3D] mt-1 break-all">{reference}</p>
             </div>
             <div className="p-4 rounded-xl border border-[#222] bg-[#0d0d0d]">
               <p className="text-xs text-gray-500 uppercase tracking-wider">Date</p>

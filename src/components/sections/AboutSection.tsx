@@ -71,7 +71,7 @@ export function AboutSection() {
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-2 font-['Outfit']">
             About{' '}
-            <span className="bg-gradient-to-r from-emerald-400 via-teal-200 to-green-300 bg-clip-text text-transparent font-extrabold drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+            <span className="bg-gradient-to-r from-[#0DCB3D] via-[#1EE94F] to-[#2cf05d] bg-clip-text text-transparent font-extrabold drop-shadow-[0_0_15px_rgba(13,203,61,0.4)]">
               the builder
             </span>
           </h2>
@@ -98,15 +98,15 @@ export function AboutSection() {
             <Card className="p-6 md:p-8 backdrop-blur-2xl">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-['Outfit'] font-bold text-white">Tech Stack &amp; Skills</h3>
-                <Code2 size={18} className="text-emerald-400" />
+                <Code2 size={18} className="text-[#0DCB3D]" />
               </div>
               <div className="flex flex-wrap gap-2">
                 {SKILLS.map((skill) => (
                   <span
                     key={skill.name}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border border-white/[0.08] bg-white/[0.03] text-slate-300 hover:border-emerald-400/40 hover:text-white transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border border-white/[0.08] bg-white/[0.03] text-slate-300 hover:border-[#0DCB3D]/50 hover:text-white transition-colors"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#0DCB3D]" />
                     <span>{skill.name}</span>
                   </span>
                 ))}
@@ -123,7 +123,7 @@ export function AboutSection() {
           >
             <Card className="p-6 md:p-8 backdrop-blur-2xl">
               <h3 className="text-lg font-['Outfit'] font-bold text-white mb-6">Journey Timeline</h3>
-              <div className="relative space-y-6 before:absolute before:left-5 before:top-2 before:bottom-2 before:w-[2px] before:bg-gradient-to-b before:from-emerald-400 before:via-teal-400 before:to-transparent">
+              <div className="relative space-y-6 before:absolute before:left-5 before:top-2 before:bottom-2 before:w-[2px] before:bg-gradient-to-b before:from-[#0DCB3D] before:via-[#1EE94F] before:to-transparent">
                 {TIMELINE.map((item, idx) => {
                   const Icon = item.icon;
                   return (
@@ -135,7 +135,7 @@ export function AboutSection() {
                       transition={{ delay: idx * 0.1, duration: 0.4 }}
                       className="relative flex gap-4 pl-1"
                     >
-                      <div className="relative z-10 w-9 h-9 rounded-xl bg-[#0d121c] border border-emerald-400/40 flex items-center justify-center shrink-0 text-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.25)]">
+                      <div className="relative z-10 w-9 h-9 rounded-xl bg-[#0d121c] border border-[#0DCB3D]/50 flex items-center justify-center shrink-0 text-[#0DCB3D] shadow-[0_0_12px_rgba(13,203,61,0.3)]">
                         <Icon size={16} />
                       </div>
                       <div className="pb-1">

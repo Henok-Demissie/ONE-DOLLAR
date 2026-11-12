@@ -76,9 +76,9 @@ export function DonationVerifyModal({
         {/* Content */}
         <div className="p-6 space-y-4">
           {/* Warning */}
-          <div className="flex gap-3 p-3 rounded-lg bg-yellow-500/10 border border-yellow-500/20">
-            <AlertTriangle size={18} className="text-yellow-400 flex-shrink-0 mt-0.5" />
-            <p className="text-sm text-yellow-300">
+          <div className="flex gap-3 p-3 rounded-lg bg-[#0DCB3D]/10 border border-[#0DCB3D]/20">
+            <AlertTriangle size={18} className="text-[#0DCB3D] flex-shrink-0 mt-0.5" />
+            <p className="text-sm text-[#0DCB3D]">
               <strong>Only verify after blockchain confirmation.</strong> Incorrect
               verifications cannot be automatically reversed.
             </p>

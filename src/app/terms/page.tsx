@@ -16,7 +16,7 @@ export default function TermsPage() {
       <main className="flex-1 container mx-auto px-4 md:px-6 max-w-4xl py-28">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-sm text-amber-400 hover:text-amber-300 mb-6"
+          className="inline-flex items-center gap-2 text-sm text-[#0DCB3D] hover:underline mb-6"
         >
           <ArrowLeft size={16} /> Back to Home
         </Link>
@@ -27,7 +27,7 @@ export default function TermsPage() {
           </div>
 
           <section className="space-y-3 text-sm text-gray-300 leading-relaxed">
-            <h2 className="text-lg font-bold text-amber-400">1. Acceptance of Terms</h2>
+            <h2 className="text-lg font-bold text-[#0DCB3D]">1. Acceptance of Terms</h2>
             <p>
               By accessing or using One Dollar Project, you agree to these Terms of Service and our
               Donation Policy. If you do not agree, please discontinue use of the site.
@@ -35,7 +35,7 @@ export default function TermsPage() {
           </section>
 
           <section className="space-y-3 text-sm text-gray-300 leading-relaxed">
-            <h2 className="text-lg font-bold text-amber-400">2. Voluntary Contributions — No Equity or Returns</h2>
+            <h2 className="text-lg font-bold text-[#0DCB3D]">2. Voluntary Contributions — No Equity or Returns</h2>
             <p>
               All contributions made through the donation flow are strictly voluntary personal gifts
               to support the creator&apos;s work and journey. Donations do not represent an
@@ -45,18 +45,17 @@ export default function TermsPage() {
           </section>
 
           <section className="space-y-3 text-sm text-gray-300 leading-relaxed">
-            <h2 className="text-lg font-bold text-amber-400">3. Cryptocurrency Risks</h2>
+            <h2 className="text-lg font-bold text-[#0DCB3D]">3. Cryptocurrency Risks</h2>
             <p>
               Cryptocurrency transfers are irreversible and subject to network fees, confirmation
               delays, and market volatility. You are solely responsible for verifying the destination
-              wallet address and selecting the matching blockchain network (e.g., TRC-20 vs ERC-20 vs
-              BSC vs Bitcoin) before sending funds. Sending assets on an unsupported network may
-              result in permanent loss of funds.
+              wallet address and selecting the matching blockchain network (BNB Smart Chain BEP-20)
+              before sending funds. Sending assets on an unsupported network may result in permanent loss of funds.
             </p>
           </section>
 
           <section className="space-y-3 text-sm text-gray-300 leading-relaxed">
-            <h2 className="text-lg font-bold text-amber-400">4. Freelance &amp; Consulting Services</h2>
+            <h2 className="text-lg font-bold text-[#0DCB3D]">4. Freelance &amp; Consulting Services</h2>
             <p>
               Submitting a request via the Hire Me form constitutes an inquiry only and does not
               form a binding contract until a separate written agreement or statement of work is
@@ -65,7 +64,7 @@ export default function TermsPage() {
           </section>
 
           <section className="space-y-3 text-sm text-gray-300 leading-relaxed">
-            <h2 className="text-lg font-bold text-amber-400">5. Limitation of Liability</h2>
+            <h2 className="text-lg font-bold text-[#0DCB3D]">5. Limitation of Liability</h2>
             <p>
               This platform is provided &ldquo;as is&rdquo; without warranties of any kind. To the
               maximum extent permitted by law, One Dollar Project and its creator shall not be liable

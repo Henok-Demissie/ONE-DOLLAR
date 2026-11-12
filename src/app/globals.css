@@ -12,10 +12,10 @@
     --bg-surface-glass: rgba(10, 14, 23, 0.78);
     --border-subtle: rgba(255, 255, 255, 0.07);
     --border-prominent: rgba(255, 255, 255, 0.12);
-    --accent-green: #10b981;
-    --accent-green-bright: #00f59b;
-    --accent-emerald: #34d399;
-    --accent-teal: #14b8a6;
+    --accent-green: #0DCB3D;
+    --accent-green-bright: #1EE94F;
+    --accent-green-dark: #0AA832;
+    --accent-green-glow: rgba(13, 203, 61, 0.45);
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
     --text-tertiary: #64748b;
@@ -40,9 +40,9 @@
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
     background-image: 
-      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(16, 185, 129, 0.12), transparent 70%),
-      radial-gradient(circle at 100% 30%, rgba(20, 184, 166, 0.06), transparent 45%),
-      radial-gradient(circle at 0% 70%, rgba(0, 245, 155, 0.04), transparent 40%);
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(13, 203, 61, 0.14), transparent 70%),
+      radial-gradient(circle at 100% 30%, rgba(13, 203, 61, 0.07), transparent 45%),
+      radial-gradient(circle at 0% 70%, rgba(13, 203, 61, 0.05), transparent 40%);
     background-attachment: fixed;
   }
 
@@ -62,7 +62,7 @@
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(16, 185, 129, 0.6);
+    background: #0DCB3D;
   }
 
   * {
@@ -75,13 +75,13 @@
   /* Astryx Precision Pill */
   .astryx-pill {
     @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wide border;
-    background: rgba(16, 185, 129, 0.06);
-    border-color: rgba(16, 185, 129, 0.25);
-    color: #34d399;
+    background: rgba(13, 203, 61, 0.08);
+    border-color: rgba(13, 203, 61, 0.3);
+    color: #0DCB3D;
     backdrop-filter: blur(8px);
   }
 
-  /* Astryx Studio Glass Card with Bright Green Gradient Lighting */
+  /* Astryx Studio Glass Card with Pure Radiant Green Gradient Lighting */
   .astryx-card {
     @apply rounded-2xl border transition-all duration-300;
     background: linear-gradient(180deg, rgba(14, 20, 30, 0.75) 0%, rgba(8, 12, 19, 0.9) 100%);
@@ -91,8 +91,8 @@
   }
 
   .astryx-card:hover {
-    border-color: rgba(16, 185, 129, 0.4);
-    box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.75), 0 0 25px -4px rgba(16, 185, 129, 0.2), inset 0 1px 0 rgba(52, 211, 153, 0.15);
+    border-color: rgba(13, 203, 61, 0.5);
+    box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.75), 0 0 30px -4px rgba(13, 203, 61, 0.3), inset 0 1px 0 rgba(13, 203, 61, 0.2);
   }
 
   /* Astryx Selectable Card for Payment & Options */
@@ -104,25 +104,25 @@
 
   .astryx-selectable:hover {
     background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(16, 185, 129, 0.3);
+    border-color: rgba(13, 203, 61, 0.4);
   }
 
   .astryx-selectable-active {
-    background: rgba(16, 185, 129, 0.08) !important;
-    border-color: rgba(16, 185, 129, 0.75) !important;
-    box-shadow: 0 0 25px rgba(16, 185, 129, 0.25);
+    background: rgba(13, 203, 61, 0.1) !important;
+    border-color: #0DCB3D !important;
+    box-shadow: 0 0 25px rgba(13, 203, 61, 0.35);
   }
 
-  /* Astryx Bright Green Gradient Buttons */
+  /* Astryx Pure Vivid Green Gradient Buttons (#0DCB3D) */
   .astryx-btn-primary {
     @apply inline-flex items-center justify-center font-bold text-black rounded-xl transition-all duration-200;
-    background: linear-gradient(135deg, #34d399 0%, #10b981 50%, #00f59b 100%);
-    box-shadow: 0 4px 18px -2px rgba(16, 185, 129, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    background: linear-gradient(135deg, #1EE94F 0%, #0DCB3D 50%, #0AA832 100%);
+    box-shadow: 0 4px 20px -2px rgba(13, 203, 61, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.4);
   }
 
   .astryx-btn-primary:hover {
-    background: linear-gradient(135deg, #6ee7b7 0%, #34d399 50%, #10b981 100%);
-    box-shadow: 0 6px 26px -2px rgba(0, 245, 155, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    background: linear-gradient(135deg, #2cf05d 0%, #15E548 50%, #0DCB3D 100%);
+    box-shadow: 0 6px 28px -2px rgba(13, 203, 61, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.5);
     transform: translateY(-1px);
   }
 
@@ -134,9 +134,9 @@
   }
 
   .astryx-btn-secondary:hover {
-    background: rgba(16, 185, 129, 0.08);
-    border-color: rgba(16, 185, 129, 0.4);
-    color: #34d399;
+    background: rgba(13, 203, 61, 0.08);
+    border-color: rgba(13, 203, 61, 0.5);
+    color: #0DCB3D;
     transform: translateY(-1px);
   }
 
@@ -145,14 +145,14 @@
   }
 
   .astryx-badge-green {
-    background: rgba(16, 185, 129, 0.12);
-    border-color: rgba(16, 185, 129, 0.35);
-    color: #34d399;
+    background: rgba(13, 203, 61, 0.12);
+    border-color: rgba(13, 203, 61, 0.4);
+    color: #0DCB3D;
   }
 
   .astryx-badge-blue {
-    background: rgba(14, 165, 233, 0.12);
-    border-color: rgba(14, 165, 233, 0.3);
-    color: #38bdf8;
+    background: rgba(13, 203, 61, 0.12);
+    border-color: rgba(13, 203, 61, 0.4);
+    color: #0DCB3D;
   }
 }

@@ -131,7 +131,7 @@ export default function AdminDashboardPage() {
           icon={Clock}
           label="Pending Verifications"
           value={stats?.status_counts?.pending ?? '—'}
-          iconColor="text-yellow-400"
+          iconColor="text-[#0DCB3D]"
           loading={loading}
         />
         <StatsCard

@@ -89,13 +89,13 @@ export function PortfolioSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wide border border-sky-400/25 bg-sky-400/5 text-sky-400 mb-4 backdrop-blur-md">
-            <Layers size={12} className="text-sky-400" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wide border border-[#0DCB3D]/30 bg-[#0DCB3D]/10 text-[#0DCB3D] mb-4 backdrop-blur-md">
+            <Layers size={12} className="text-[#0DCB3D]" />
             <span>Engineering Showcase</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-2.5 font-['Outfit']">
             Featured{' '}
-            <span className="bg-gradient-to-r from-emerald-400 via-teal-200 to-green-300 bg-clip-text text-transparent font-extrabold drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+            <span className="bg-gradient-to-r from-[#0DCB3D] via-[#1EE94F] to-[#2cf05d] bg-clip-text text-transparent font-extrabold drop-shadow-[0_0_15px_rgba(13,203,61,0.4)]">
               portfolio
             </span>
           </h2>
@@ -114,8 +114,8 @@ export function PortfolioSection() {
               className={cn(
                 'px-4 py-1.5 rounded-full text-xs font-semibold border transition-all duration-200 cursor-pointer',
                 selectedTech === tech
-                  ? 'border-emerald-400 bg-gradient-to-r from-emerald-400 to-teal-400 text-black font-bold shadow-md shadow-emerald-500/25'
-                  : 'border-white/[0.08] bg-white/[0.02] text-slate-400 hover:border-emerald-400/30 hover:text-white hover:bg-white/[0.05]'
+                  ? 'border-[#0DCB3D] bg-gradient-to-r from-[#1EE94F] via-[#0DCB3D] to-[#0AA832] text-black font-bold shadow-md shadow-[#0DCB3D]/30'
+                  : 'border-white/[0.08] bg-white/[0.02] text-slate-400 hover:border-[#0DCB3D]/40 hover:text-white hover:bg-white/[0.05]'
               )}
             >
               {tech}
@@ -133,7 +133,7 @@ export function PortfolioSection() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.08, duration: 0.4 }}
             >
-              <div className="astryx-card overflow-hidden h-full flex flex-col group hover:border-emerald-400/50 transition-all duration-300">
+              <div className="astryx-card overflow-hidden h-full flex flex-col group hover:border-[#0DCB3D]/50 transition-all duration-300">
                 <div className="relative h-48 w-full bg-gradient-to-br from-[#0f1422] via-[#090d16] to-[#06080e] border-b border-white/[0.08] flex items-center justify-center overflow-hidden">
                   {project.image_url ? (
                     <Image

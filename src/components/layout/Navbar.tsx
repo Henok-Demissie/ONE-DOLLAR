@@ -58,11 +58,11 @@ export function Navbar() {
               className="flex items-center gap-2.5 group"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 via-teal-300 to-green-400 flex items-center justify-center text-black font-black text-sm shadow-md shadow-emerald-500/30">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#1EE94F] via-[#0DCB3D] to-[#0AA832] flex items-center justify-center text-black font-black text-sm shadow-md shadow-[#0DCB3D]/35">
                 $1
               </div>
               <div className="flex items-center gap-1.5 font-['Outfit']">
-                <span className="text-sm sm:text-base font-bold tracking-tight text-white group-hover:text-emerald-400 transition-colors">
+                <span className="text-sm sm:text-base font-bold tracking-tight text-white group-hover:text-[#0DCB3D] transition-colors">
                   One Dollar
                 </span>
                 <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-white/[0.06] text-slate-400 border border-white/[0.08]">

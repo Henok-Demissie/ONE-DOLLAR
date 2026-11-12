@@ -172,13 +172,13 @@ export function HireMeSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wide border border-sky-400/25 bg-sky-400/5 text-sky-400 mb-4 backdrop-blur-md">
-            <Briefcase size={12} className="text-sky-400" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wide border border-[#0DCB3D]/30 bg-[#0DCB3D]/10 text-[#0DCB3D] mb-4 backdrop-blur-md">
+            <Briefcase size={12} className="text-[#0DCB3D]" />
             <span>Services &amp; Engineering Consultation</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-3 font-['Outfit']">
             Let&apos;s build something{' '}
-            <span className="bg-gradient-to-r from-emerald-400 via-teal-200 to-green-300 bg-clip-text text-transparent font-extrabold drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+            <span className="bg-gradient-to-r from-[#0DCB3D] via-[#1EE94F] to-[#2cf05d] bg-clip-text text-transparent font-extrabold drop-shadow-[0_0_15px_rgba(13,203,61,0.4)]">
               great together.
             </span>
           </h2>
@@ -205,19 +205,14 @@ export function HireMeSection() {
                   className={cn(
                     'astryx-card p-5 h-full flex flex-col justify-between gap-4 cursor-pointer relative transition-all duration-300 group',
                     isSelected
-                      ? 'border-emerald-400/80 bg-emerald-400/[0.08] shadow-[0_0_25px_rgba(16,185,129,0.25)] ring-1 ring-emerald-400/50'
-                      : 'hover:border-emerald-400/30 hover:bg-white/[0.04]'
+                      ? 'border-[#0DCB3D] bg-[#0DCB3D]/[0.08] shadow-[0_0_25px_rgba(13,203,61,0.25)] ring-1 ring-[#0DCB3D]/50'
+                      : 'hover:border-[#0DCB3D]/30 hover:bg-white/[0.04]'
                   )}
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
                       <div
-                        className={cn(
-                          'w-10 h-10 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105',
-                          service.color === 'gold'
-                            ? 'bg-emerald-400/15 text-emerald-400 border border-emerald-400/25 shadow-[0_0_10px_rgba(16,185,129,0.2)]'
-                            : 'bg-teal-400/15 text-teal-300 border border-teal-400/25'
-                        )}
+                        className="w-10 h-10 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105 bg-[#0DCB3D]/15 text-[#0DCB3D] border border-[#0DCB3D]/30 shadow-[0_0_10px_rgba(13,203,61,0.2)]"
                       >
                         <Icon size={19} />
                       </div>
@@ -227,7 +222,7 @@ export function HireMeSection() {
                     </div>
 
                     <div>
-                      <h3 className="text-base font-['Outfit'] font-bold text-white group-hover:text-emerald-300 transition-colors">
+                      <h3 className="text-base font-['Outfit'] font-bold text-white group-hover:text-[#0DCB3D] transition-colors">
                         {service.title}
                       </h3>
                       <p className="text-xs text-slate-400 leading-relaxed mt-1.5 line-clamp-3">
@@ -327,7 +322,7 @@ export function HireMeSection() {
                       id="project-type"
                       value={form.project_type}
                       onChange={(e) => setForm({ ...form, project_type: e.target.value })}
-                      className="w-full rounded-xl border border-white/[0.08] bg-[#090d15]/80 px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-500/25 focus:border-amber-400 transition-all cursor-pointer"
+                      className="w-full rounded-xl border border-white/[0.08] bg-[#090d15]/80 px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#0DCB3D]/30 focus:border-[#0DCB3D] transition-all cursor-pointer"
                     >
                       {HIRE_SERVICES.map((s) => (
                         <option key={s.title} value={s.title} className="bg-[#090d15] text-white">
@@ -347,7 +342,7 @@ export function HireMeSection() {
                       id="budget-range"
                       value={form.budget}
                       onChange={(e) => setForm({ ...form, budget: e.target.value })}
-                      className="w-full rounded-xl border border-white/[0.08] bg-[#090d15]/80 px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-500/25 focus:border-amber-400 transition-all cursor-pointer"
+                      className="w-full rounded-xl border border-white/[0.08] bg-[#090d15]/80 px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#0DCB3D]/30 focus:border-[#0DCB3D] transition-all cursor-pointer"
                     >
                       {BUDGET_RANGES.map((b) => (
                         <option key={b} value={b} className="bg-[#090d15] text-white">

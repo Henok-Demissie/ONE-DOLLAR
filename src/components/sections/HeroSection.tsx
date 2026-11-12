@@ -30,8 +30,8 @@ export function HeroSection() {
       className="relative min-h-[92vh] flex flex-col items-center justify-center overflow-hidden pt-24 pb-16"
     >
       {/* Subtle Astryx ambient green lighting */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[380px] bg-emerald-500/10 rounded-full blur-[130px] pointer-events-none" />
-      <div className="absolute top-1/3 left-1/3 w-[320px] h-[320px] bg-teal-400/[0.05] rounded-full blur-[110px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[380px] bg-[#0DCB3D]/10 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/3 w-[320px] h-[320px] bg-[#0DCB3D]/[0.05] rounded-full blur-[110px] pointer-events-none" />
 
       {/* Grid line texture */}
       <div
@@ -52,15 +52,15 @@ export function HeroSection() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
           {/* Astryx Precision Pill Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold tracking-wide border border-emerald-400/30 bg-emerald-400/10 text-emerald-300 mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(16,185,129,0.2)]">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#10b981]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold tracking-wide border border-[#0DCB3D]/30 bg-[#0DCB3D]/10 text-[#0DCB3D] mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(13,203,61,0.2)]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0DCB3D] animate-pulse shadow-[0_0_8px_#0DCB3D]" />
             <span className="font-mono text-[11px] uppercase tracking-wider">The Proof-of-Possibility Experiment</span>
           </div>
 
-          {/* Refined Headline — Bright Green with Gradiented Light */}
+          {/* Refined Headline — Bright Green with Gradiented Light (#0DCB3D) */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.16] font-['Outfit'] mb-5">
             One dollar can help build a{' '}
-            <span className="bg-gradient-to-r from-emerald-400 via-teal-200 to-green-300 bg-clip-text text-transparent font-extrabold drop-shadow-[0_0_25px_rgba(16,185,129,0.3)]">
+            <span className="bg-gradient-to-r from-[#0DCB3D] via-[#1EE94F] to-[#2cf05d] bg-clip-text text-transparent font-extrabold drop-shadow-[0_0_25px_rgba(13,203,61,0.4)]">
               million-dollar
             </span>{' '}
             dream.
@@ -77,7 +77,7 @@ export function HeroSection() {
               variant="primary"
               size="md"
               onClick={scrollToDonate}
-              className="px-6 py-2.5 text-xs font-semibold tracking-wide shadow-lg shadow-emerald-500/25"
+              className="px-6 py-2.5 text-xs font-semibold tracking-wide shadow-lg shadow-[#0DCB3D]/30"
             >
               <span>Donate $1</span>
               <ArrowRight size={14} />
@@ -97,7 +97,7 @@ export function HeroSection() {
             <div className="grid grid-cols-3 divide-x divide-white/[0.06] text-center">
               <div className="px-2">
                 <span className="block text-xs text-slate-400 font-medium uppercase tracking-wider mb-0.5">Micro Goal</span>
-                <span className="font-mono text-sm sm:text-base font-bold text-emerald-400">$1 Minimum</span>
+                <span className="font-mono text-sm sm:text-base font-bold text-[#0DCB3D]">$1 Minimum</span>
               </div>
               <div className="px-2">
                 <span className="block text-xs text-slate-400 font-medium uppercase tracking-wider mb-0.5">Target</span>
@@ -105,7 +105,7 @@ export function HeroSection() {
               </div>
               <div className="px-2">
                 <span className="block text-xs text-slate-400 font-medium uppercase tracking-wider mb-0.5">Rails</span>
-                <span className="font-mono text-xs sm:text-sm font-semibold text-emerald-400">FedNow • BSC (BEP-20)</span>
+                <span className="font-mono text-xs sm:text-sm font-semibold text-[#0DCB3D]">FedNow • BSC (BEP-20)</span>
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@ export function HeroSection() {
       <button
         type="button"
         onClick={scrollToNext}
-        className="mt-12 flex flex-col items-center gap-1.5 text-slate-500 hover:text-amber-400 transition-colors text-xs cursor-pointer group"
+        className="mt-12 flex flex-col items-center gap-1.5 text-slate-500 hover:text-[#0DCB3D] transition-colors text-xs cursor-pointer group"
         aria-label="Scroll to stats"
       >
         <span className="text-[11px] tracking-widest uppercase font-medium">Explore Details</span>

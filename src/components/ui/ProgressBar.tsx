@@ -37,13 +37,15 @@ export function ProgressBar({
           <span className="text-sm font-medium text-gray-300">
             {label || 'Goal Progress'}
           </span>
-          <span className="text-sm font-bold text-amber-400">{clamped.toFixed(1)}%</span>
+          <span className="text-sm font-bold text-[#0DCB3D] font-mono drop-shadow-[0_0_8px_rgba(13,203,61,0.5)]">
+            {clamped.toFixed(1)}%
+          </span>
         </div>
       )}
 
       <div
         className={cn(
-          'w-full overflow-hidden rounded-full bg-[#1a1a1a] border border-[#333]',
+          'w-full overflow-hidden rounded-full bg-[#0d1219] border border-white/[0.08]',
           sizeClasses[size]
         )}
       >
@@ -51,27 +53,30 @@ export function ProgressBar({
           initial={{ width: 0 }}
           animate={{ width: `${clamped}%` }}
           transition={{ duration: 1.2, ease: 'easeOut', delay: 0.2 }}
-          className="h-full rounded-full bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-400 relative overflow-hidden"
+          className="h-full rounded-full bg-gradient-to-r from-[#0AA832] via-[#0DCB3D] to-[#1EE94F] shadow-[0_0_16px_rgba(13,203,61,0.65)] relative overflow-hidden"
         >
           {/* shimmer effect */}
           <motion.div
             animate={{ x: ['-100%', '200%'] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'linear', repeatDelay: 1 }}
-            className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"
+            className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"
           />
         </motion.div>
       </div>
 
       {(raised !== undefined || goal !== undefined) && (
-        <div className="flex items-center justify-between mt-1.5">
+        <div className="flex items-center justify-between mt-1.5 font-mono">
           {raised !== undefined && (
-            <span className="text-xs text-gray-500">
-              Raised: <span className="text-amber-400 font-semibold">${raised.toLocaleString()}</span>
+            <span className="text-xs text-slate-400 font-sans">
+              Raised:{' '}
+              <span className="text-[#0DCB3D] font-mono font-bold drop-shadow-[0_0_8px_rgba(13,203,61,0.4)]">
+                ${raised.toLocaleString()}
+              </span>
             </span>
           )}
           {goal !== undefined && (
-            <span className="text-xs text-gray-500">
-              Goal: <span className="text-gray-300 font-semibold">${goal.toLocaleString()}</span>
+            <span className="text-xs text-slate-400 font-sans">
+              Goal: <span className="text-white font-mono font-semibold">${goal.toLocaleString()}</span>
             </span>
           )}
         </div>

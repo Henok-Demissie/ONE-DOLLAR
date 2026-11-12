@@ -32,7 +32,7 @@ const CRYPTO_OPTIONS: CryptoOption[] = [
     networkLabel: 'BNB Smart Chain (BEP-20)',
     name: 'Tether USDT (BEP-20)',
     icon: '₮',
-    color: 'text-emerald-400',
+    color: 'text-[#0DCB3D]',
     badge: 'Instant & Lowest Fee (~$0.15)',
     fallbackWallet: process.env.NEXT_PUBLIC_USDT_BEP20_WALLET || '0x84eafb95bb7bfb8d61e00d720e4a3b56c6d09d90',
   },
@@ -50,9 +50,9 @@ function StepIndicator({ current, total }: { current: number; total: number }) {
               className={cn(
                 'w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold border transition-all duration-300 font-mono',
                 i < current
-                  ? 'bg-gradient-to-r from-emerald-400 via-teal-300 to-green-400 border-emerald-400 text-black shadow-[0_0_15px_rgba(16,185,129,0.4)]'
+                  ? 'bg-gradient-to-r from-[#1EE94F] via-[#0DCB3D] to-[#0AA832] border-[#0DCB3D] text-black shadow-[0_0_15px_rgba(13,203,61,0.5)]'
                   : i === current
-                  ? 'border-emerald-400 text-emerald-300 bg-emerald-400/15 shadow-[0_0_14px_rgba(16,185,129,0.35)] ring-2 ring-emerald-400/30'
+                  ? 'border-[#0DCB3D] text-[#0DCB3D] bg-[#0DCB3D]/15 shadow-[0_0_14px_rgba(13,203,61,0.35)] ring-2 ring-[#0DCB3D]/30'
                   : 'border-white/[0.08] text-slate-500 bg-white/[0.02]'
               )}
             >
@@ -61,7 +61,7 @@ function StepIndicator({ current, total }: { current: number; total: number }) {
             <span
               className={cn(
                 'text-[11px] font-semibold tracking-wider uppercase hidden sm:block',
-                i === current ? 'text-emerald-400 font-bold' : 'text-slate-500'
+                i === current ? 'text-[#0DCB3D] font-bold' : 'text-slate-500'
               )}
             >
               {label}
@@ -71,7 +71,7 @@ function StepIndicator({ current, total }: { current: number; total: number }) {
             <div
               className={cn(
                 'h-[2px] w-5 sm:w-10 transition-all duration-500 rounded-full',
-                i < current ? 'bg-gradient-to-r from-emerald-400 to-teal-400' : 'bg-white/[0.08]'
+                i < current ? 'bg-gradient-to-r from-[#1EE94F] to-[#0DCB3D]' : 'bg-white/[0.08]'
               )}
             />
           )}
@@ -106,7 +106,7 @@ function CountdownTimer({ seconds, onExpire }: { seconds: number; onExpire: () =
       <div
         className={cn(
           'text-2xl font-mono font-bold tracking-wider',
-          remaining < 300 ? 'text-red-400' : 'text-emerald-400 drop-shadow-[0_0_10px_rgba(16,185,129,0.3)]'
+          remaining < 300 ? 'text-red-400' : 'text-[#0DCB3D] drop-shadow-[0_0_10px_rgba(13,203,61,0.4)]'
         )}
       >
         {String(m).padStart(2, '0')}:{String(s).padStart(2, '0')}
@@ -117,13 +117,13 @@ function CountdownTimer({ seconds, onExpire }: { seconds: number; onExpire: () =
             'h-full rounded-full transition-all duration-500',
             remaining < 300
               ? 'bg-red-500'
-              : 'bg-gradient-to-r from-emerald-400 via-teal-300 to-green-400 shadow-[0_0_12px_rgba(16,185,129,0.6)]'
+              : 'bg-gradient-to-r from-[#1EE94F] via-[#0DCB3D] to-[#0AA832] shadow-[0_0_12px_rgba(13,203,61,0.6)]'
           )}
           style={{ width: `${pct}%` }}
         />
       </div>
       <p className="text-[11px] text-slate-400 flex items-center gap-1.5 mt-0.5">
-        <Clock size={12} className="text-emerald-400" /> Time remaining to lock live session
+        <Clock size={12} className="text-[#0DCB3D]" /> Time remaining to lock live session
       </p>
     </div>
   );
@@ -382,8 +382,8 @@ export function DonationSection() {
 
   return (
     <section id="donate" className="py-24 relative overflow-hidden">
-      {/* Radiant Bright Green Ambient Lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none" />
+      {/* Radiant Bright Green Ambient Lighting (#0DCB3D) */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-[#0DCB3D]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-6 max-w-2xl relative z-10">
         <motion.div
@@ -393,13 +393,13 @@ export function DonationSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wide border border-emerald-400/30 bg-emerald-400/10 text-emerald-300 mb-4 backdrop-blur-md shadow-[0_0_15px_rgba(16,185,129,0.2)]">
-            <Sparkles size={12} className="text-emerald-400" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wide border border-[#0DCB3D]/30 bg-[#0DCB3D]/10 text-[#0DCB3D] mb-4 backdrop-blur-md shadow-[0_0_15px_rgba(13,203,61,0.25)]">
+            <Sparkles size={12} className="text-[#0DCB3D]" />
             <span>Multi-Rail Contribution Hub</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-2.5 font-['Outfit']">
             Support the{' '}
-            <span className="bg-gradient-to-r from-emerald-400 via-teal-200 to-green-300 bg-clip-text text-transparent font-extrabold drop-shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+            <span className="bg-gradient-to-r from-[#0DCB3D] via-[#1EE94F] to-[#2cf05d] bg-clip-text text-transparent font-extrabold drop-shadow-[0_0_20px_rgba(13,203,61,0.4)]">
               dream
             </span>
           </h2>
@@ -440,8 +440,8 @@ export function DonationSection() {
                         className={cn(
                           'py-3.5 rounded-xl font-mono font-bold text-sm border transition-all duration-200 cursor-pointer',
                           isSelected
-                            ? 'border-emerald-400 bg-gradient-to-b from-emerald-400/20 via-teal-500/15 to-green-500/10 text-emerald-300 shadow-[0_0_24px_rgba(16,185,129,0.3)] ring-1 ring-emerald-400/50'
-                            : 'border-white/[0.08] text-slate-300 hover:border-emerald-400/30 hover:text-white bg-white/[0.02] hover:bg-white/[0.04]'
+                            ? 'border-[#0DCB3D] bg-gradient-to-b from-[#0DCB3D]/25 via-[#0DCB3D]/15 to-[#0AA832]/10 text-[#0DCB3D] shadow-[0_0_24px_rgba(13,203,61,0.35)] ring-1 ring-[#0DCB3D]/50'
+                            : 'border-white/[0.08] text-slate-300 hover:border-[#0DCB3D]/30 hover:text-white bg-white/[0.02] hover:bg-white/[0.04]'
                         )}
                       >
                         ${a}
@@ -462,14 +462,14 @@ export function DonationSection() {
                   />
                 </div>
 
-                {/* Amount preview badge card with bright green glow */}
-                <div className="p-5 rounded-2xl border border-emerald-500/25 bg-emerald-500/[0.05] mb-6 flex items-center justify-between shadow-[0_0_25px_rgba(16,185,129,0.12)]">
+                {/* Amount preview badge card with bright pure green glow */}
+                <div className="p-5 rounded-2xl border border-[#0DCB3D]/30 bg-[#0DCB3D]/[0.06] mb-6 flex items-center justify-between shadow-[0_0_25px_rgba(13,203,61,0.15)]">
                   <div>
                     <span className="text-xs text-slate-400 font-medium uppercase tracking-wider block">Total Commitment</span>
-                    <span className="text-xs text-emerald-400/90 font-medium">Voluntary &amp; Non-Refundable</span>
+                    <span className="text-xs text-[#0DCB3D] font-medium">Voluntary &amp; Non-Refundable</span>
                   </div>
                   <div className="text-right">
-                    <p className="text-3xl font-['Outfit'] font-extrabold text-emerald-400 font-mono drop-shadow-[0_0_12px_rgba(16,185,129,0.4)]">
+                    <p className="text-3xl font-['Outfit'] font-extrabold text-[#0DCB3D] font-mono drop-shadow-[0_0_12px_rgba(13,203,61,0.5)]">
                       ${Number.isFinite(finalAmount) ? finalAmount : 0}{' '}
                       <span className="text-xs text-slate-400 font-sans font-normal uppercase">USD</span>
                     </p>
@@ -479,7 +479,7 @@ export function DonationSection() {
                 <Button
                   variant="primary"
                   size="lg"
-                  className="w-full justify-center shadow-emerald-500/30"
+                  className="w-full justify-center shadow-[#0DCB3D]/35"
                   disabled={!finalAmount || finalAmount < 1 || finalAmount > 10000}
                   onClick={() => setStep(1)}
                 >
@@ -500,7 +500,7 @@ export function DonationSection() {
               >
                 <div className="flex items-center justify-between mb-2">
                   <h3 className="text-lg font-['Outfit'] font-bold text-white">Choose Payment Rail</h3>
-                  <div className="astryx-pill text-emerald-400 border-emerald-400/30 font-mono shadow-[0_0_10px_rgba(16,185,129,0.25)]">
+                  <div className="astryx-pill text-[#0DCB3D] border-[#0DCB3D]/30 font-mono shadow-[0_0_10px_rgba(13,203,61,0.25)]">
                     ${finalAmount} USD
                   </div>
                 </div>
@@ -516,7 +516,7 @@ export function DonationSection() {
                     className={cn(
                       'flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer',
                       paymentMode === 'crypto'
-                        ? 'bg-gradient-to-r from-emerald-400 via-teal-300 to-green-400 text-black font-bold shadow-md shadow-emerald-500/30'
+                        ? 'bg-gradient-to-r from-[#1EE94F] via-[#0DCB3D] to-[#0AA832] text-black font-bold shadow-md shadow-[#0DCB3D]/35'
                         : 'text-slate-400 hover:text-white hover:bg-white/[0.04]'
                     )}
                   >
@@ -529,7 +529,7 @@ export function DonationSection() {
                     className={cn(
                       'flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer',
                       paymentMode === 'bank'
-                        ? 'bg-gradient-to-r from-emerald-400 via-teal-300 to-green-400 text-black font-bold shadow-md shadow-emerald-500/30'
+                        ? 'bg-gradient-to-r from-[#1EE94F] via-[#0DCB3D] to-[#0AA832] text-black font-bold shadow-md shadow-[#0DCB3D]/35'
                         : 'text-slate-400 hover:text-white hover:bg-white/[0.04]'
                     )}
                   >
@@ -542,7 +542,7 @@ export function DonationSection() {
                     className={cn(
                       'flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer',
                       paymentMode === 'card'
-                        ? 'bg-gradient-to-r from-emerald-400 via-teal-300 to-green-400 text-black font-bold shadow-md shadow-emerald-500/30'
+                        ? 'bg-gradient-to-r from-[#1EE94F] via-[#0DCB3D] to-[#0AA832] text-black font-bold shadow-md shadow-[#0DCB3D]/35'
                         : 'text-slate-400 hover:text-white hover:bg-white/[0.04]'
                     )}
                   >
@@ -558,9 +558,9 @@ export function DonationSection() {
                         return (
                           <div
                             key={crypto.id}
-                            className="flex items-center gap-3.5 p-4 rounded-xl border border-emerald-400/80 bg-emerald-400/[0.08] shadow-[0_0_25px_rgba(16,185,129,0.2)] ring-1 ring-emerald-400/40 cursor-pointer"
+                            className="flex items-center gap-3.5 p-4 rounded-xl border border-[#0DCB3D] bg-[#0DCB3D]/[0.08] shadow-[0_0_25px_rgba(13,203,61,0.25)] ring-1 ring-[#0DCB3D]/40 cursor-pointer"
                           >
-                            <span className="text-2xl font-bold w-8 text-center text-emerald-400">
+                            <span className="text-2xl font-bold w-8 text-center text-[#0DCB3D]">
                               {crypto.icon}
                             </span>
                             <div className="flex-1 min-w-0">
@@ -568,31 +568,31 @@ export function DonationSection() {
                                 <p className="font-semibold text-white text-sm tracking-tight truncate">
                                   {crypto.name}
                                 </p>
-                                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-400/20 text-emerald-300 border border-emerald-400/40 shrink-0">
+                                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#0DCB3D]/20 text-[#0DCB3D] border border-[#0DCB3D]/40 shrink-0">
                                   {crypto.badge}
                                 </span>
                               </div>
                               <p className="text-xs text-slate-300 font-mono mt-0.5 truncate">{crypto.networkLabel}</p>
                             </div>
-                            <div className="w-5 h-5 rounded-full bg-emerald-400 flex items-center justify-center text-black shrink-0 shadow-[0_0_10px_rgba(16,185,129,0.5)]">
+                            <div className="w-5 h-5 rounded-full bg-[#0DCB3D] flex items-center justify-center text-black shrink-0 shadow-[0_0_10px_rgba(13,203,61,0.6)]">
                               <Check size={12} className="stroke-[3]" />
                             </div>
                           </div>
                         );
                       })}
                     </div>
-                    <div className="p-3.5 rounded-xl bg-emerald-500/[0.06] border border-emerald-500/25 mb-5">
-                      <p className="text-xs text-emerald-300 leading-relaxed">
-                        <strong className="text-emerald-200">Instant Settlement:</strong> USDT on BNB Smart Chain (BEP-20) offers the fastest confirmation time (~3s) and the lowest network gas fee (~$0.15).
+                    <div className="p-3.5 rounded-xl bg-[#0DCB3D]/[0.06] border border-[#0DCB3D]/25 mb-5">
+                      <p className="text-xs text-[#0DCB3D] leading-relaxed">
+                        <strong className="text-white">Instant Settlement:</strong> USDT on BNB Smart Chain (BEP-20) offers the fastest confirmation time (~3s) and the lowest network gas fee (~$0.15).
                       </p>
                     </div>
                   </>
                 ) : paymentMode === 'bank' ? (
                   <div className="space-y-4 mb-5">
-                    <div className="p-4 rounded-xl border border-emerald-500/25 bg-emerald-500/[0.04] space-y-3.5">
+                    <div className="p-4 rounded-xl border border-[#0DCB3D]/25 bg-[#0DCB3D]/[0.04] space-y-3.5">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2.5">
-                          <div className="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                          <div className="w-9 h-9 rounded-xl bg-[#0DCB3D]/15 border border-[#0DCB3D]/30 flex items-center justify-center text-[#0DCB3D]">
                             <Building2 size={18} />
                           </div>
                           <div>
@@ -604,7 +604,7 @@ export function DonationSection() {
                             </p>
                           </div>
                         </div>
-                        <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-emerald-500/15 text-emerald-300 border-emerald-500/30">
+                        <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-[#0DCB3D]/15 text-[#0DCB3D] border-[#0DCB3D]/30">
                           Active
                         </span>
                       </div>
@@ -623,7 +623,7 @@ export function DonationSection() {
                             onClick={() => copyBankDetail('Account Holder', BANK_TRANSFER_DETAILS.accountHolder)}
                             className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-white/[0.06] transition-colors"
                           >
-                            {copiedBankField === 'Account Holder' ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
+                            {copiedBankField === 'Account Holder' ? <Check size={14} className="text-[#0DCB3D]" /> : <Copy size={14} />}
                           </button>
                         </div>
 
@@ -637,41 +637,41 @@ export function DonationSection() {
                             onClick={() => copyBankDetail('Bank Name', BANK_TRANSFER_DETAILS.bankName)}
                             className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-white/[0.06] transition-colors"
                           >
-                            {copiedBankField === 'Bank Name' ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
+                            {copiedBankField === 'Bank Name' ? <Check size={14} className="text-[#0DCB3D]" /> : <Copy size={14} />}
                           </button>
                         </div>
 
                         <div className="flex items-center justify-between p-3">
                           <div>
                             <span className="text-slate-400 block text-[11px] uppercase tracking-wider">Account Number (Checking)</span>
-                            <code className="text-emerald-400 font-mono font-bold text-sm">{BANK_TRANSFER_DETAILS.accountNumber}</code>
+                            <code className="text-[#0DCB3D] font-mono font-bold text-sm">{BANK_TRANSFER_DETAILS.accountNumber}</code>
                           </div>
                           <button
                             type="button"
                             onClick={() => copyBankDetail('Account Number', BANK_TRANSFER_DETAILS.accountNumber)}
                             className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-white/[0.06] transition-colors"
                           >
-                            {copiedBankField === 'Account Number' ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
+                            {copiedBankField === 'Account Number' ? <Check size={14} className="text-[#0DCB3D]" /> : <Copy size={14} />}
                           </button>
                         </div>
 
                         <div className="flex items-center justify-between p-3">
                           <div>
                             <span className="text-slate-400 block text-[11px] uppercase tracking-wider">ACH Routing Number</span>
-                            <code className="text-emerald-400 font-mono font-bold text-sm">{BANK_TRANSFER_DETAILS.routingNumber}</code>
+                            <code className="text-[#0DCB3D] font-mono font-bold text-sm">{BANK_TRANSFER_DETAILS.routingNumber}</code>
                           </div>
                           <button
                             type="button"
                             onClick={() => copyBankDetail('Routing Number', BANK_TRANSFER_DETAILS.routingNumber)}
                             className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-white/[0.06] transition-colors"
                           >
-                            {copiedBankField === 'Routing Number' ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
+                            {copiedBankField === 'Routing Number' ? <Check size={14} className="text-[#0DCB3D]" /> : <Copy size={14} />}
                           </button>
                         </div>
                       </div>
 
-                      <div className="p-3 rounded-xl bg-emerald-500/[0.06] border border-emerald-500/25">
-                        <p className="text-[11px] text-emerald-300 leading-relaxed">
+                      <div className="p-3 rounded-xl bg-[#0DCB3D]/[0.06] border border-[#0DCB3D]/25">
+                        <p className="text-[11px] text-[#0DCB3D] leading-relaxed">
                           Supported rails: <strong>FedNow (instant 24/7)</strong>, <strong>ACH Transfer</strong>, or <strong>Domestic Wire</strong>. Click <em>Continue</em> to enter your name and message.
                         </p>
                       </div>
@@ -682,7 +682,7 @@ export function DonationSection() {
                     <div className="p-4 rounded-xl border border-white/[0.08] bg-[#090d15]/80 space-y-3.5">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2.5">
-                          <div className="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                          <div className="w-9 h-9 rounded-xl bg-[#0DCB3D]/15 border border-[#0DCB3D]/30 flex items-center justify-center text-[#0DCB3D]">
                             <CreditCard size={18} />
                           </div>
                           <div>
@@ -698,8 +698,8 @@ export function DonationSection() {
                           className={cn(
                             'text-[11px] font-semibold px-2.5 py-0.5 rounded-full border',
                             cardOnRampEnabled
-                              ? 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30'
-                              : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
+                              ? 'bg-[#0DCB3D]/15 text-[#0DCB3D] border-[#0DCB3D]/30'
+                              : 'bg-[#0DCB3D]/10 text-[#0DCB3D] border-[#0DCB3D]/30'
                           )}
                         >
                           {cardOnRampEnabled ? 'Active' : 'Setup Guide Below'}
@@ -709,15 +709,15 @@ export function DonationSection() {
                         Supporters can pay with debit or credit card without owning crypto. The gateway converts your card payment and auto-settles USDT directly to your verified BEP-20 wallet.
                       </p>
                       {finalAmount < 3 && (
-                        <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
-                          <p className="text-xs text-emerald-300 leading-relaxed">
+                        <div className="p-3 rounded-xl bg-[#0DCB3D]/10 border border-[#0DCB3D]/30">
+                          <p className="text-xs text-[#0DCB3D] leading-relaxed">
                             💡 Card-to-crypto gateways enforce a <strong>$3 USD minimum</strong> for card processing. Pick <strong>$5+</strong> for card checkout, or use <strong>Crypto Wallet (BEP-20)</strong> directly for $1.
                           </p>
                         </div>
                       )}
                       {!cardOnRampEnabled && (
-                        <div className="p-3.5 rounded-xl bg-emerald-500/[0.06] border border-emerald-500/25">
-                          <p className="text-xs text-emerald-300 leading-relaxed">
+                        <div className="p-3.5 rounded-xl bg-[#0DCB3D]/[0.06] border border-[#0DCB3D]/25">
+                          <p className="text-xs text-[#0DCB3D] leading-relaxed">
                             <strong>To activate live card checkout:</strong> Add your free <code>NOWPAYMENTS_API_KEY</code> and <code>NOWPAYMENTS_IPN_SECRET</code> to your Vercel / <code>.env.local</code> settings. See the detailed instructions in chat.
                           </p>
                         </div>
@@ -761,7 +761,7 @@ export function DonationSection() {
               >
                 <div className="flex items-center justify-between mb-5">
                   <h3 className="text-lg font-['Outfit'] font-bold text-white">Donor Info (Optional)</h3>
-                  <div className="astryx-pill text-emerald-400 font-mono text-[11px]">
+                  <div className="astryx-pill text-[#0DCB3D] font-mono text-[11px]">
                     ${finalAmount} via {paymentMode === 'crypto' ? 'USDT (BEP-20)' : paymentMode === 'bank' ? 'US Bank' : 'Card'}
                   </div>
                 </div>
@@ -778,7 +778,7 @@ export function DonationSection() {
                       aria-label="Toggle anonymous donation"
                       className={cn(
                         'w-11 h-6 rounded-full transition-all duration-300 relative cursor-pointer',
-                        isAnonymous ? 'bg-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.6)]' : 'bg-white/[0.1]'
+                        isAnonymous ? 'bg-[#0DCB3D] shadow-[0_0_12px_rgba(13,203,61,0.6)]' : 'bg-white/[0.1]'
                       )}
                     >
                       <div
@@ -845,7 +845,7 @@ export function DonationSection() {
               >
                 <div className="flex items-center justify-between mb-5">
                   <h3 className="text-lg font-['Outfit'] font-bold text-white">Complete Transfer</h3>
-                  <div className="astryx-pill text-emerald-400 border-emerald-400/30 text-[11px] shadow-[0_0_10px_rgba(16,185,129,0.3)]">
+                  <div className="astryx-pill text-[#0DCB3D] border-[#0DCB3D]/30 text-[11px] shadow-[0_0_10px_rgba(13,203,61,0.3)]">
                     <ShieldCheck size={12} />
                     <span>Session Locked</span>
                   </div>
@@ -864,9 +864,9 @@ export function DonationSection() {
                   <>
                     {paymentMode === 'bank' ? (
                       <div className="space-y-4 mb-5">
-                        <div className="p-4 rounded-xl border border-emerald-500/25 bg-emerald-500/[0.04] space-y-3.5">
+                        <div className="p-4 rounded-xl border border-[#0DCB3D]/25 bg-[#0DCB3D]/[0.04] space-y-3.5">
                           <div className="flex items-center gap-2">
-                            <Building2 size={18} className="text-emerald-400" />
+                            <Building2 size={18} className="text-[#0DCB3D]" />
                             <h4 className="text-sm font-bold text-white">Transfer to US Bank (Lead Bank via Grey)</h4>
                           </div>
 
@@ -881,7 +881,7 @@ export function DonationSection() {
                                 onClick={() => copyBankDetail('Account Holder', BANK_TRANSFER_DETAILS.accountHolder)}
                                 className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-white/[0.06]"
                               >
-                                {copiedBankField === 'Account Holder' ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
+                                {copiedBankField === 'Account Holder' ? <Check size={14} className="text-[#0DCB3D]" /> : <Copy size={14} />}
                               </button>
                             </div>
                             <div className="flex items-center justify-between p-3">
@@ -894,33 +894,33 @@ export function DonationSection() {
                                 onClick={() => copyBankDetail('Bank Name', BANK_TRANSFER_DETAILS.bankName)}
                                 className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-white/[0.06]"
                               >
-                                {copiedBankField === 'Bank Name' ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
+                                {copiedBankField === 'Bank Name' ? <Check size={14} className="text-[#0DCB3D]" /> : <Copy size={14} />}
                               </button>
                             </div>
                             <div className="flex items-center justify-between p-3">
                               <div>
                                 <span className="text-slate-400 block text-[11px] uppercase tracking-wider">Account Number (Checking)</span>
-                                <code className="text-emerald-400 font-mono font-bold text-sm">{BANK_TRANSFER_DETAILS.accountNumber}</code>
+                                <code className="text-[#0DCB3D] font-mono font-bold text-sm">{BANK_TRANSFER_DETAILS.accountNumber}</code>
                               </div>
                               <button
                                 type="button"
                                 onClick={() => copyBankDetail('Account Number', BANK_TRANSFER_DETAILS.accountNumber)}
                                 className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-white/[0.06]"
                               >
-                                {copiedBankField === 'Account Number' ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
+                                {copiedBankField === 'Account Number' ? <Check size={14} className="text-[#0DCB3D]" /> : <Copy size={14} />}
                               </button>
                             </div>
                             <div className="flex items-center justify-between p-3">
                               <div>
                                 <span className="text-slate-400 block text-[11px] uppercase tracking-wider">ACH Routing Number</span>
-                                <code className="text-emerald-400 font-mono font-bold text-sm">{BANK_TRANSFER_DETAILS.routingNumber}</code>
+                                <code className="text-[#0DCB3D] font-mono font-bold text-sm">{BANK_TRANSFER_DETAILS.routingNumber}</code>
                               </div>
                               <button
                                 type="button"
                                 onClick={() => copyBankDetail('Routing Number', BANK_TRANSFER_DETAILS.routingNumber)}
                                 className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-white/[0.06]"
                               >
-                                {copiedBankField === 'Routing Number' ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
+                                {copiedBankField === 'Routing Number' ? <Check size={14} className="text-[#0DCB3D]" /> : <Copy size={14} />}
                               </button>
                             </div>
                           </div>
@@ -938,31 +938,31 @@ export function DonationSection() {
                       </div>
                     ) : (
                       <div className="flex flex-col items-center gap-4 mb-5">
-                        {/* Astryx QR frame with glowing emerald outline */}
-                        <div className="p-3.5 bg-white rounded-2xl shadow-[0_0_30px_rgba(16,185,129,0.25)] border-2 border-emerald-400/40">
+                        {/* Astryx QR frame with glowing bright green outline */}
+                        <div className="p-3.5 bg-white rounded-2xl shadow-[0_0_30px_rgba(13,203,61,0.25)] border-2 border-[#0DCB3D]/50">
                           <QRCodeSVG value={walletAddress || '0x84eafb95bb7bfb8d61e00d720e4a3b56c6d09d90'} size={168} />
                         </div>
 
                         <div className="w-full">
                           <div className="flex items-center justify-between mb-1.5">
-                            <p className="text-xs text-emerald-400 uppercase tracking-wider font-bold flex items-center gap-1.5">
-                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                            <p className="text-xs text-[#0DCB3D] uppercase tracking-wider font-bold flex items-center gap-1.5">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#0DCB3D] animate-pulse" />
                               USDT Deposit Address (BNB Smart Chain BEP-20)
                             </p>
                             <span className="text-[10px] text-slate-400 font-mono">Verified Binance</span>
                           </div>
-                          <div className="flex items-center gap-2 p-3.5 rounded-xl border border-emerald-400/30 bg-[#070a10] shadow-[0_0_15px_rgba(16,185,129,0.1)]">
-                            <code className="flex-1 text-xs text-emerald-300 font-mono break-all select-all font-semibold">
+                          <div className="flex items-center gap-2 p-3.5 rounded-xl border border-[#0DCB3D]/30 bg-[#070a10] shadow-[0_0_15px_rgba(13,203,61,0.1)]">
+                            <code className="flex-1 text-xs text-[#0DCB3D] font-mono break-all select-all font-semibold">
                               {walletAddress || '0x84eafb95bb7bfb8d61e00d720e4a3b56c6d09d90'}
                             </code>
                             <button
                               type="button"
                               onClick={copyAddress}
-                              className="shrink-0 p-2 rounded-lg text-slate-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors cursor-pointer"
+                              className="shrink-0 p-2 rounded-lg text-slate-400 hover:text-[#0DCB3D] hover:bg-[#0DCB3D]/10 transition-colors cursor-pointer"
                               aria-label="Copy wallet address"
                             >
                               {copied ? (
-                                <Check size={16} className="text-emerald-400 stroke-[3]" />
+                                <Check size={16} className="text-[#0DCB3D] stroke-[3]" />
                               ) : (
                                 <Copy size={16} />
                               )}
@@ -973,7 +973,7 @@ export function DonationSection() {
                         <div className="w-full grid grid-cols-2 gap-3 text-center">
                           <div className="p-3.5 rounded-xl border border-white/[0.08] bg-[#070a10]">
                             <p className="text-xs text-slate-400 font-medium uppercase tracking-wider">Amount (USD)</p>
-                            <p className="text-xl font-['Outfit'] font-bold text-emerald-400 font-mono mt-0.5">${finalAmount}</p>
+                            <p className="text-xl font-['Outfit'] font-bold text-[#0DCB3D] font-mono mt-0.5">${finalAmount}</p>
                           </div>
                           <div className="p-3.5 rounded-xl border border-white/[0.08] bg-[#070a10]">
                             <p className="text-xs text-slate-400 font-medium uppercase tracking-wider">Target Network</p>
@@ -999,8 +999,8 @@ export function DonationSection() {
                       </div>
                     )}
 
-                    <div className="p-3.5 rounded-xl bg-emerald-500/[0.06] border border-emerald-500/25 mb-5">
-                      <p className="text-xs text-emerald-300 text-center leading-relaxed">
+                    <div className="p-3.5 rounded-xl bg-[#0DCB3D]/[0.06] border border-[#0DCB3D]/25 mb-5">
+                      <p className="text-xs text-[#0DCB3D] text-center leading-relaxed">
                         {paymentMode === 'bank' ? (
                           <>
                             ⚠ Send <strong>${finalAmount} USD</strong> via FedNow, ACH, or Wire to the Lead Bank account above. Donations are voluntary and non-refundable.
@@ -1018,7 +1018,7 @@ export function DonationSection() {
                     <Button
                       variant="primary"
                       size="lg"
-                      className="w-full justify-center shadow-emerald-500/30"
+                      className="w-full justify-center shadow-[#0DCB3D]/30"
                       loading={loading}
                       onClick={handlePaymentConfirm}
                     >
@@ -1049,26 +1049,26 @@ export function DonationSection() {
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 0.15, type: 'spring', stiffness: 200 }}
-                  className="w-20 h-20 rounded-full bg-emerald-500/15 border-2 border-emerald-400 flex items-center justify-center mx-auto mb-6 shadow-[0_0_35px_rgba(16,185,129,0.4)]"
+                  className="w-20 h-20 rounded-full bg-[#0DCB3D]/15 border-2 border-[#0DCB3D] flex items-center justify-center mx-auto mb-6 shadow-[0_0_35px_rgba(13,203,61,0.4)]"
                 >
-                  <CheckCircle2 size={40} className="text-emerald-400 stroke-[2.5]" />
+                  <CheckCircle2 size={40} className="text-[#0DCB3D] stroke-[2.5]" />
                 </motion.div>
 
                 <h3 className="text-3xl font-['Outfit'] font-extrabold text-white mb-2">Thank You! 🙏</h3>
                 <p className="text-slate-300 text-sm mb-6 max-w-md mx-auto leading-relaxed">
                   Your contribution of{' '}
-                  <span className="text-emerald-400 font-bold font-mono">${finalAmount}</span> has been received and submitted to the ledger for live verification.
+                  <span className="text-[#0DCB3D] font-bold font-mono">${finalAmount}</span> has been received and submitted to the ledger for live verification.
                 </p>
 
                 <div className="p-4 rounded-xl border border-white/[0.08] bg-[#070a10] mb-6 text-left space-y-2">
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-slate-400 uppercase tracking-wider">Reference ID</span>
-                    <span className="font-mono text-xs text-emerald-300 font-bold">{txRef}</span>
+                    <span className="font-mono text-xs text-[#0DCB3D] font-bold">{txRef}</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-slate-400 uppercase tracking-wider">Status</span>
-                    <span className="text-xs text-emerald-400 font-semibold flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="text-xs text-[#0DCB3D] font-semibold flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#0DCB3D] animate-pulse" />
                       Submitted — Awaiting Confirmation
                     </span>
                   </div>

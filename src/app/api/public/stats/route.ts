@@ -60,7 +60,17 @@ export async function GET() {
       goalProgress: Math.round(goalProgress * 100) / 100,
     });
   } catch (error) {
-    console.error('[API] /api/public/stats error:', error);
-    return NextResponse.json({ error: 'Failed to fetch stats' }, { status: 500 });
+    console.error('[API] /api/public/stats fallback to zero metrics:', error);
+    return NextResponse.json({
+      total_raised_usd: 0,
+      supporter_count: 0,
+      goal_amount: 1000000,
+      days_active: 1,
+      totalRaised: 0,
+      totalSupporters: 0,
+      goalAmount: 1000000,
+      daysActive: 1,
+      goalProgress: 0,
+    });
   }
 }

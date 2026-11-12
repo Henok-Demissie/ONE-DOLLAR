@@ -15,11 +15,11 @@ interface BadgeProps {
 const statusConfig: Record<BadgeStatus, { label: string; classes: string }> = {
   pending: {
     label: 'Pending',
-    classes: 'bg-yellow-500/15 text-yellow-400 border-yellow-500/30',
+    classes: 'bg-white/[0.08] text-slate-300 border-white/20',
   },
   completed: {
     label: 'Completed',
-    classes: 'bg-green-500/15 text-green-400 border-green-500/30',
+    classes: 'bg-[#0DCB3D]/20 text-[#0DCB3D] border-[#0DCB3D]/40 shadow-[0_0_10px_rgba(13,203,61,0.2)]',
   },
   failed: {
     label: 'Failed',
@@ -44,8 +44,8 @@ export function Badge({ status, label, variant = 'default', className }: BadgePr
       >
         <span className={cn(
           'h-1.5 w-1.5 rounded-full',
-          status === 'pending' && 'bg-yellow-400 animate-pulse',
-          status === 'completed' && 'bg-green-400',
+          status === 'pending' && 'bg-slate-400 animate-pulse',
+          status === 'completed' && 'bg-[#0DCB3D]',
           status === 'failed' && 'bg-red-400',
           status === 'expired' && 'bg-gray-400',
         )} />

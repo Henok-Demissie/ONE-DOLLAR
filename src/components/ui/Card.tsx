@@ -14,8 +14,8 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const glowStyles: Record<GlowColor, string> = {
-  gold: 'hover:border-amber-500/60 hover:shadow-[0_0_30px_rgba(245,158,11,0.15)]',
-  blue: 'hover:border-sky-500/60 hover:shadow-[0_0_30px_rgba(14,165,233,0.15)]',
+  gold: 'hover:border-[#0DCB3D]/60 hover:shadow-[0_0_30px_rgba(13,203,61,0.25)]',
+  blue: 'hover:border-[#0DCB3D]/60 hover:shadow-[0_0_30px_rgba(13,203,61,0.25)]',
   none: '',
 };
 
@@ -33,7 +33,7 @@ export function Card({
       transition={{ duration: 0.2 }}
       className={cn(
         'rounded-2xl border border-white/[0.08] bg-[#0c111a]/80 backdrop-blur-xl transition-all duration-300 shadow-xl shadow-black/40',
-        hover && 'hover:border-amber-500/40 hover:shadow-2xl hover:shadow-black/60',
+        hover && 'hover:border-[#0DCB3D]/50 hover:shadow-2xl hover:shadow-black/60',
         hover && glowStyles[glow],
         className
       )}

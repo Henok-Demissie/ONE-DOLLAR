@@ -45,7 +45,6 @@ function StatCard({
   prefix = '',
   suffix = '',
   decimals = 0,
-  color = 'gold',
   started,
 }: {
   icon: React.ElementType;
@@ -54,22 +53,18 @@ function StatCard({
   prefix?: string;
   suffix?: string;
   decimals?: number;
-  color?: 'gold' | 'blue';
+  color?: string;
   started: boolean;
 }) {
   const count = useCountUp(decimals > 0 ? Math.round(value * 100) : Math.round(value), 2000, started);
   const displayValue = decimals > 0 ? (count / 100).toFixed(decimals) : count.toLocaleString();
 
   return (
-    <Card hover glow={color} className="p-5 flex flex-col justify-between gap-4 bg-[#0d121c]/75 border-white/[0.08] backdrop-blur-xl">
+    <Card className="p-5 flex flex-col justify-between gap-4 bg-[#0d121c]/75 border-white/[0.08] hover:border-[#0DCB3D]/50 hover:shadow-[0_0_25px_rgba(13,203,61,0.2)] backdrop-blur-xl transition-all duration-300">
       <div className="flex items-center justify-between">
         <span className="text-xs font-semibold text-slate-400 tracking-wide uppercase">{label}</span>
         <div
-          className={`w-9 h-9 rounded-xl flex items-center justify-center border ${
-            color === 'gold'
-              ? 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30 shadow-[0_0_12px_rgba(16,185,129,0.2)]'
-              : 'bg-teal-500/15 text-teal-300 border-teal-500/30'
-          }`}
+          className="w-9 h-9 rounded-xl flex items-center justify-center border bg-[#0DCB3D]/15 text-[#0DCB3D] border-[#0DCB3D]/30 shadow-[0_0_12px_rgba(13,203,61,0.25)]"
         >
           <Icon size={17} />
         </div>
@@ -120,11 +115,11 @@ export function StatsSection() {
       })
       .catch(() => {
         setStats({
-          totalRaised: 247,
-          totalSupporters: 189,
+          totalRaised: 0,
+          totalSupporters: 0,
           goalAmount: 1000000,
-          daysActive: 42,
-          goalProgress: 0.0247,
+          daysActive: 1,
+          goalProgress: 0,
         });
       });
   }, []);
@@ -138,13 +133,13 @@ export function StatsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide text-emerald-300 bg-emerald-400/10 border border-emerald-400/30 mb-3 backdrop-blur-md shadow-[0_0_12px_rgba(16,185,129,0.2)]">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide text-[#0DCB3D] bg-[#0DCB3D]/10 border border-[#0DCB3D]/30 mb-3 backdrop-blur-md shadow-[0_0_12px_rgba(13,203,61,0.2)]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0DCB3D] animate-pulse" />
             <span>Live Telemetry</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-2 font-['Outfit']">
             The dream in{' '}
-            <span className="bg-gradient-to-r from-emerald-400 via-teal-200 to-green-300 bg-clip-text text-transparent font-extrabold drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+            <span className="bg-gradient-to-r from-[#0DCB3D] via-[#1EE94F] to-[#2cf05d] bg-clip-text text-transparent font-extrabold drop-shadow-[0_0_15px_rgba(13,203,61,0.4)]">
               numbers
             </span>
           </h2>
@@ -159,14 +154,12 @@ export function StatsSection() {
             label="Total Raised (USD)"
             value={stats.totalRaised}
             prefix="$"
-            color="gold"
             started={inView}
           />
           <StatCard
             icon={Users}
             label="Total Supporters"
             value={stats.totalSupporters}
-            color="blue"
             started={inView}
           />
           <StatCard
@@ -175,14 +168,12 @@ export function StatsSection() {
             value={stats.goalProgress}
             decimals={2}
             suffix="%"
-            color="gold"
             started={inView}
           />
           <StatCard
             icon={Calendar}
             label="Days Active"
             value={stats.daysActive}
-            color="blue"
             started={inView}
           />
         </div>
@@ -193,7 +184,7 @@ export function StatsSection() {
           transition={{ delay: 0.4, duration: 0.6 }}
           className="max-w-3xl mx-auto"
         >
-          <Card className="p-6">
+          <Card className="p-6 border-white/[0.08] hover:border-[#0DCB3D]/40 transition-colors">
             <ProgressBar
               value={stats.goalProgress}
               raised={stats.totalRaised}

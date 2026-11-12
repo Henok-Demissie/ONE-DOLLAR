@@ -36,7 +36,7 @@ export default function AdminSettingsPage() {
       <div className="bg-[#111111] border border-white/5 rounded-xl p-6 space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-lg bg-yellow-500/10 text-yellow-400">
+            <div className="p-2 rounded-lg bg-[#0DCB3D]/10 text-[#0DCB3D]">
               <ShieldAlert size={18} />
             </div>
             <div>
@@ -44,8 +44,8 @@ export default function AdminSettingsPage() {
               <p className="text-xs text-white/40">Active donation settlement method</p>
             </div>
           </div>
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-yellow-500/15 text-yellow-400 border border-yellow-500/25">
-            <span className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-[#0DCB3D]/15 text-[#0DCB3D] border border-[#0DCB3D]/25">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0DCB3D]" />
             Crypto Wallet Mode - Admin Verification Required
           </span>
         </div>

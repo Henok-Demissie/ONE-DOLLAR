@@ -43,7 +43,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="md:col-span-2 space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-400 via-teal-300 to-green-400 flex items-center justify-center font-['Outfit'] font-black text-black text-sm shadow-[0_0_15px_rgba(16,185,129,0.35)]">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#1EE94F] via-[#0DCB3D] to-[#0AA832] flex items-center justify-center font-['Outfit'] font-black text-black text-sm shadow-[0_0_15px_rgba(13,203,61,0.4)]">
                 $1
               </div>
               <span className="text-lg font-['Outfit'] font-bold tracking-tight text-white">

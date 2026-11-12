@@ -31,7 +31,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             'focus:outline-none focus:ring-2 backdrop-blur-sm',
             error
               ? 'border-red-500/70 focus:ring-red-500/30 focus:border-red-500'
-              : 'border-white/[0.08] focus:ring-amber-500/25 focus:border-amber-400 hover:border-white/15',
+              : 'border-white/[0.08] focus:ring-[#0DCB3D]/30 focus:border-[#0DCB3D] hover:border-white/15',
             props.disabled && 'opacity-50 cursor-not-allowed',
             className
           )}
@@ -77,7 +77,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             'focus:outline-none focus:ring-2 backdrop-blur-sm',
             error
               ? 'border-red-500/70 focus:ring-red-500/30 focus:border-red-500'
-              : 'border-white/[0.08] focus:ring-amber-500/25 focus:border-amber-400 hover:border-white/15',
+              : 'border-white/[0.08] focus:ring-[#0DCB3D]/30 focus:border-[#0DCB3D] hover:border-white/15',
             className
           )}
           {...props}

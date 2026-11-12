@@ -20,11 +20,11 @@ interface StatusBadgeProps {
 const statusConfig: Record<string, { label: string; className: string }> = {
   pending: {
     label: 'Pending',
-    className: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
+    className: 'bg-white/[0.08] text-slate-300 border-white/20',
   },
   completed: {
     label: 'Completed',
-    className: 'bg-green-500/20 text-green-400 border-green-500/30',
+    className: 'bg-[#0DCB3D]/20 text-[#0DCB3D] border-[#0DCB3D]/40',
   },
   failed: {
     label: 'Failed',

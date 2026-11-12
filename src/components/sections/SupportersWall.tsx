@@ -61,17 +61,12 @@ export function SupportersWall() {
       const data = await res.json();
 
       const rows: PublicSupporter[] = data.supporters ?? [];
-      if (pageNum === 1 && rows.length === 0) {
-        setSupporters(FALLBACK_SUPPORTERS);
-        setTotal(FALLBACK_SUPPORTERS.length);
-      } else {
-        setSupporters((prev) => (append ? [...prev, ...rows] : rows));
-        setTotal(data.total ?? rows.length);
-      }
+      setSupporters((prev) => (append ? [...prev, ...rows] : rows));
+      setTotal(data.total ?? rows.length);
     } catch {
       if (pageNum === 1) {
-        setSupporters(FALLBACK_SUPPORTERS);
-        setTotal(FALLBACK_SUPPORTERS.length);
+        setSupporters([]);
+        setTotal(0);
       }
     } finally {
       setLoading(false);
@@ -101,13 +96,13 @@ export function SupportersWall() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wide border border-emerald-400/30 bg-emerald-400/10 text-emerald-300 mb-4 backdrop-blur-md shadow-[0_0_12px_rgba(16,185,129,0.2)]">
-            <Heart size={12} className="fill-emerald-400 text-emerald-400" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wide border border-[#0DCB3D]/30 bg-[#0DCB3D]/10 text-[#0DCB3D] mb-4 backdrop-blur-md shadow-[0_0_12px_rgba(13,203,61,0.25)]">
+            <Heart size={12} className="fill-[#0DCB3D] text-[#0DCB3D]" />
             <span>Verified Community Ledger</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-2 font-['Outfit']">
             Supporters{' '}
-            <span className="bg-gradient-to-r from-emerald-400 via-teal-200 to-green-300 bg-clip-text text-transparent font-extrabold drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+            <span className="bg-gradient-to-r from-[#0DCB3D] via-[#1EE94F] to-[#2cf05d] bg-clip-text text-transparent font-extrabold drop-shadow-[0_0_15px_rgba(13,203,61,0.4)]">
               wall
             </span>
           </h2>
@@ -126,6 +121,16 @@ export function SupportersWall() {
               </div>
             ))}
           </div>
+        ) : supporters.length === 0 ? (
+          <div className="astryx-card p-10 text-center max-w-md mx-auto space-y-3 border-white/[0.08]">
+            <div className="w-12 h-12 rounded-2xl bg-[#0DCB3D]/15 border border-[#0DCB3D]/30 flex items-center justify-center mx-auto text-[#0DCB3D] shadow-[0_0_20px_rgba(13,203,61,0.3)]">
+              <Heart size={22} className="fill-[#0DCB3D]" />
+            </div>
+            <h3 className="text-lg font-['Outfit'] font-bold text-white">Be the First Supporter</h3>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              The journey starts here. Support with $1 to permanently place your name and message on the community wall!
+            </p>
+          </div>
         ) : (
           <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -137,20 +142,20 @@ export function SupportersWall() {
                   viewport={{ once: true }}
                   transition={{ delay: (idx % 6) * 0.05, duration: 0.4 }}
                 >
-                  <div className="astryx-card p-6 h-full flex flex-col justify-between gap-4 group hover:border-emerald-400/50 transition-all duration-300">
+                  <div className="astryx-card p-6 h-full flex flex-col justify-between gap-4 group hover:border-[#0DCB3D]/50 transition-all duration-300">
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400/20 to-teal-600/10 border border-emerald-400/30 flex items-center justify-center text-emerald-300 font-['Outfit'] font-bold text-sm shadow-[0_0_12px_rgba(16,185,129,0.25)]">
+                        <div className="w-10 h-10 rounded-xl bg-[#0DCB3D]/15 border border-[#0DCB3D]/40 flex items-center justify-center text-[#0DCB3D] font-['Outfit'] font-bold text-sm shadow-[0_0_12px_rgba(13,203,61,0.25)]">
                           {(s.donor_name || 'A').charAt(0).toUpperCase()}
                         </div>
                         <div>
-                          <p className="font-['Outfit'] font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                          <p className="font-['Outfit'] font-bold text-white text-sm group-hover:text-[#0DCB3D] transition-colors">
                             {s.donor_name || 'Anonymous'}
                           </p>
                           <p className="text-[11px] text-slate-400 font-mono">{formatDate(s.created_at)}</p>
                         </div>
                       </div>
-                      <div className="px-3 py-1 rounded-full bg-emerald-400/10 border border-emerald-400/30 text-emerald-300 text-xs font-mono font-bold tracking-tight shadow-[0_0_8px_rgba(16,185,129,0.15)]">
+                      <div className="px-3 py-1 rounded-full bg-[#0DCB3D]/15 border border-[#0DCB3D]/30 text-[#0DCB3D] text-xs font-mono font-bold tracking-tight shadow-[0_0_8px_rgba(13,203,61,0.2)]">
                         ${Number(s.amount_usd).toLocaleString()}
                       </div>
                     </div>

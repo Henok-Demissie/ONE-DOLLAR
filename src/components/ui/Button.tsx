@@ -17,9 +17,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-gradient-to-r from-emerald-400 via-teal-300 to-green-400 text-black font-extrabold hover:brightness-110 shadow-lg shadow-emerald-500/25 border-0',
+    'bg-gradient-to-r from-[#1EE94F] via-[#0DCB3D] to-[#0AA832] text-black font-extrabold hover:brightness-110 shadow-lg shadow-[#0DCB3D]/30 border-0',
   secondary:
-    'border border-white/15 text-white bg-white/[0.04] hover:bg-emerald-500/10 hover:border-emerald-400/40 hover:text-emerald-300 font-semibold backdrop-blur-sm',
+    'border border-white/15 text-white bg-white/[0.04] hover:bg-[#0DCB3D]/10 hover:border-[#0DCB3D]/40 hover:text-[#0DCB3D] font-semibold backdrop-blur-sm',
   ghost:
     'border border-transparent text-gray-400 hover:text-white hover:bg-white/[0.06]',
   danger:
@@ -53,7 +53,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         transition={{ duration: 0.15 }}
         disabled={disabled || loading}
         className={cn(
-          'inline-flex items-center justify-center transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50 disabled:opacity-50 disabled:cursor-not-allowed',
+          'inline-flex items-center justify-center transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0DCB3D]/50 disabled:opacity-50 disabled:cursor-not-allowed',
           variantStyles[variant],
           sizeStyles[size],
           className
