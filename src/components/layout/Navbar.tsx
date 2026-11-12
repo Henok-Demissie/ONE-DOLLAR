@@ -45,7 +45,7 @@ export function Navbar() {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           scrolled
-            ? 'bg-black/95 backdrop-blur-md border-b border-[#222] shadow-lg shadow-black/50'
+            ? 'bg-[#07090e]/85 backdrop-blur-xl border-b border-white/[0.08] shadow-2xl shadow-black/60'
             : 'bg-transparent'
         )}
       >
@@ -54,22 +54,29 @@ export function Navbar() {
             {/* Logo */}
             <Link
               href="/"
-              className="flex items-center gap-2 group"
+              className="flex items-center gap-2.5 group"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
-              <span className="text-lg font-black tracking-tight bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent group-hover:from-amber-300 group-hover:to-yellow-200 transition-all">
-                ONE DOLLAR
-              </span>
-              <span className="text-lg font-black tracking-tight text-white/60">PROJECT</span>
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-yellow-500 flex items-center justify-center text-black font-black text-sm shadow-md shadow-amber-500/25">
+                $1
+              </div>
+              <div className="flex items-center gap-1 font-['Outfit',sans-serif]">
+                <span className="text-base font-black tracking-tight text-white group-hover:text-amber-400 transition-colors">
+                  ONE DOLLAR
+                </span>
+                <span className="text-xs font-semibold px-1.5 py-0.5 rounded bg-white/[0.08] text-slate-400 border border-white/[0.06]">
+                  PROJECT
+                </span>
+              </div>
             </Link>
 
             {/* Desktop nav */}
-            <div className="hidden md:flex items-center gap-1">
+            <div className="hidden md:flex items-center gap-1 p-1 rounded-full bg-white/[0.03] border border-white/[0.06] backdrop-blur-md">
               {navLinks.map((link) => (
                 <button
                   key={link.href}
                   onClick={() => handleNavClick(link.href)}
-                  className="px-4 py-2 rounded-lg text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all duration-200"
+                  className="px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-400 hover:text-white hover:bg-white/[0.08] transition-all duration-150"
                 >
                   {link.label}
                 </button>
@@ -77,20 +84,20 @@ export function Navbar() {
             </div>
 
             {/* CTA + mobile toggle */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2.5">
               <Button
                 variant="primary"
                 size="sm"
-                className="hidden md:inline-flex"
+                className="hidden md:inline-flex text-xs px-4"
                 onClick={() => handleNavClick('/#donate')}
               >
                 DONATE $1
               </Button>
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
+                className="md:hidden p-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 transition-colors border border-white/10"
               >
-                {menuOpen ? <X size={20} /> : <Menu size={20} />}
+                {menuOpen ? <X size={18} /> : <Menu size={18} />}
               </button>
             </div>
           </div>

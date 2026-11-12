@@ -61,23 +61,25 @@ function StatCard({
   const displayValue = decimals > 0 ? (count / 100).toFixed(decimals) : count.toLocaleString();
 
   return (
-    <Card hover glow={color} className="p-6 flex flex-col gap-4">
-      <div
-        className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-          color === 'gold'
-            ? 'bg-amber-500/15 text-amber-400'
-            : 'bg-sky-500/15 text-sky-400'
-        }`}
-      >
-        <Icon size={22} />
+    <Card hover glow={color} className="p-5 flex flex-col justify-between gap-4 bg-[#0d121c]/75 border-white/[0.08] backdrop-blur-xl">
+      <div className="flex items-center justify-between">
+        <span className="text-xs font-semibold text-slate-400 tracking-wide uppercase">{label}</span>
+        <div
+          className={`w-9 h-9 rounded-xl flex items-center justify-center border ${
+            color === 'gold'
+              ? 'bg-amber-500/10 text-amber-400 border-amber-500/20'
+              : 'bg-sky-500/10 text-sky-400 border-sky-500/20'
+          }`}
+        >
+          <Icon size={17} />
+        </div>
       </div>
       <div>
-        <p className="text-3xl font-black text-white">
+        <p className="text-3xl font-black text-white font-mono tracking-tight">
           {prefix}
           {displayValue}
           {suffix}
         </p>
-        <p className="text-sm text-gray-500 mt-1">{label}</p>
       </div>
     </Card>
   );
@@ -128,22 +130,25 @@ export function StatsSection() {
   }, []);
 
   return (
-    <section id="stats" ref={ref} className="py-24 bg-[#0a0a0a]">
+    <section id="stats" ref={ref} className="py-20 bg-transparent">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-3">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-widest text-amber-400 bg-amber-500/10 border border-amber-500/20 mb-3">
+            Real-time Telemetry
+          </span>
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-2 font-['Outfit',sans-serif]">
             THE DREAM IN{' '}
             <span className="bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent">
               NUMBERS
             </span>
           </h2>
-          <p className="text-gray-500 max-w-xl mx-auto">
-            Every dollar matters. Every supporter counts. Here&apos;s how the dream is growing.
+          <p className="text-slate-400 max-w-xl mx-auto text-sm">
+            Every dollar matters. Every supporter counts. All figures derive from verified on-chain and bank settlements.
           </p>
         </motion.div>
 

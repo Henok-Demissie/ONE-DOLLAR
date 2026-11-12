@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Github, Twitter, Linkedin, Mail, ExternalLink } from 'lucide-react';
+import { Github, Twitter, Linkedin, Mail, ExternalLink, ShieldCheck } from 'lucide-react';
 
 const quickLinks = [
   { href: '/#home', label: 'Home' },
@@ -19,10 +19,10 @@ const legalLinks = [
 ];
 
 const socialLinks = [
-  { href: '#', label: 'GitHub', icon: Github },
+  { href: 'https://github.com/Henok-Demissie/ONE-DOLLAR', label: 'GitHub', icon: Github },
   { href: '#', label: 'Twitter / X', icon: Twitter },
   { href: '#', label: 'LinkedIn', icon: Linkedin },
-  { href: '#', label: 'Email', icon: Mail },
+  { href: 'mailto:contact@onedollarproject.org', label: 'Email', icon: Mail },
 ];
 
 export function Footer() {
@@ -37,24 +37,25 @@ export function Footer() {
   };
 
   return (
-    <footer className="border-t border-[#1a1a1a] bg-[#0a0a0a]">
-      <div className="container mx-auto px-4 md:px-6 py-14">
+    <footer className="border-t border-white/[0.08] bg-[#05070c] relative">
+      <div className="container mx-auto px-4 md:px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          {/* Brand */}
+          {/* Brand Column */}
           <div className="md:col-span-2 space-y-4">
-            <div>
-              <span className="text-2xl font-black tracking-tight bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent">
-                ONE DOLLAR
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center font-['Outfit'] font-black text-black text-sm shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+                $1
+              </div>
+              <span className="text-xl font-['Outfit'] font-extrabold tracking-tight text-white">
+                ONE DOLLAR <span className="text-slate-500 font-medium">PROJECT</span>
               </span>
-              <span className="text-2xl font-black tracking-tight text-white/40 ml-2">PROJECT</span>
             </div>
-            <p className="text-sm text-gray-500 leading-relaxed max-w-sm">
+            <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
               ONE DOLLAR. ONE DREAM. MILLIONS OF POSSIBILITIES.
               <br />
-              A journey to build something meaningful through technology, creativity, and the
-              collective support of people who believe in the dream.
+              A transparent journey to build meaningful open software, products, and communities through the collective power of micro-support.
             </p>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2.5 pt-1">
               {socialLinks.map(({ href, label, icon: Icon }) => (
                 <a
                   key={label}
@@ -62,7 +63,7 @@ export function Footer() {
                   aria-label={label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg border border-[#222] text-gray-500 hover:text-amber-400 hover:border-amber-500/40 transition-all duration-200"
+                  className="p-2.5 rounded-xl border border-white/[0.08] bg-white/[0.02] text-slate-400 hover:text-amber-400 hover:border-amber-400/40 hover:bg-white/[0.05] transition-all duration-200"
                 >
                   <Icon size={16} />
                 </a>
@@ -72,15 +73,15 @@ export function Footer() {
 
           {/* Quick links */}
           <div>
-            <h4 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">
-              Navigate
+            <h4 className="text-xs font-semibold text-slate-300 mb-4 uppercase tracking-wider font-mono">
+              Navigation
             </h4>
             <ul className="space-y-2.5">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <button
                     onClick={() => handleScroll(link.href)}
-                    className="text-sm text-gray-500 hover:text-amber-400 transition-colors duration-200 text-left"
+                    className="text-sm text-slate-400 hover:text-amber-400 transition-colors duration-200 text-left cursor-pointer"
                   >
                     {link.label}
                   </button>
@@ -91,39 +92,38 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">
-              Legal
+            <h4 className="text-xs font-semibold text-slate-300 mb-4 uppercase tracking-wider font-mono">
+              Compliance &amp; Legal
             </h4>
             <ul className="space-y-2.5">
               {legalLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-500 hover:text-amber-400 transition-colors duration-200 flex items-center gap-1"
+                    className="text-sm text-slate-400 hover:text-amber-400 transition-colors duration-200 flex items-center gap-1.5"
                   >
-                    {link.label}
-                    <ExternalLink size={12} className="opacity-50" />
+                    <span>{link.label}</span>
+                    <ExternalLink size={12} className="opacity-40" />
                   </Link>
                 </li>
               ))}
             </ul>
-            <div className="mt-6 p-3 rounded-lg border border-[#1a1a1a] bg-[#0d0d0d]">
-              <p className="text-xs text-gray-600 leading-relaxed">
-                All donations are voluntary and non-refundable. This is not an investment.
-                No equity or returns are offered.
+            <div className="mt-5 p-3 rounded-xl border border-white/[0.06] bg-white/[0.02]">
+              <p className="text-[11px] text-slate-400 leading-relaxed">
+                All donations are voluntary and non-refundable. Contributions do not constitute an investment, loan, or purchase of equity.
               </p>
             </div>
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-[#1a1a1a] flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-600">
+        <div className="mt-12 pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <p>
             &copy; {year} One Dollar Project. All rights reserved.
           </p>
-          <p className="text-xs text-gray-700">
-            Built with ❤️ and{' '}
-            <span className="text-amber-600">$1 at a time.</span>
-          </p>
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-slate-400 font-mono">Settlement Rails: Binance Pay • FedNow • Lead Bank • NOWPayments</span>
+          </div>
         </div>
       </div>
     </footer>

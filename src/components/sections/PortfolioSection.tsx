@@ -3,9 +3,8 @@
 import { useEffect, useState, useMemo } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, FolderGit2 } from 'lucide-react';
+import { ExternalLink, Github, FolderGit2, Sparkles, Layers } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
-import { Badge } from '@/components/ui/Badge';
 import { createClient } from '@/lib/supabase/client';
 import type { PortfolioProject } from '@/types';
 import { cn } from '@/lib/utils';
@@ -15,20 +14,20 @@ const FALLBACK_PROJECTS: PortfolioProject[] = [
     id: 'proj-1',
     title: 'One Dollar Project Platform',
     description:
-      'Full-stack crypto donation platform & portfolio built with Next.js 14, Supabase, Framer Motion, and an admin verification suite.',
-    tech_stack: ['Next.js', 'TypeScript', 'Supabase', 'Tailwind CSS'],
+      'Full-stack crypto & US bank donation platform and portfolio built with Next.js 14, Supabase, Astryx UI design system, and multi-rail payment verification.',
+    tech_stack: ['Next.js 14', 'TypeScript', 'Supabase', 'Tailwind CSS', 'Framer Motion'],
     project_url: '#',
-    github_url: '#',
+    github_url: 'https://github.com/Henok-Demissie/ONE-DOLLAR',
     is_featured: true,
     sort_order: 1,
     created_at: new Date().toISOString(),
   },
   {
     id: 'proj-2',
-    title: 'AI Workflow Automation Suite',
+    title: 'Autonomous AI Workflow Orchestrator',
     description:
-      'Autonomous multi-agent pipeline integrating LLMs, webhooks, and scheduled reporting for modern SaaS teams.',
-    tech_stack: ['Python', 'Next.js', 'AI/ML', 'PostgreSQL'],
+      'Autonomous multi-agent pipeline integrating LLMs, webhooks, and scheduled task reporting for modern high-performance engineering teams.',
+    tech_stack: ['Python', 'Next.js', 'LLM Agents', 'PostgreSQL', 'Docker'],
     project_url: '#',
     github_url: '#',
     is_featured: true,
@@ -37,10 +36,10 @@ const FALLBACK_PROJECTS: PortfolioProject[] = [
   },
   {
     id: 'proj-3',
-    title: 'Real-Time Analytics Dashboard',
+    title: 'Real-Time Financial Telemetry Engine',
     description:
-      'High-throughput telemetry dashboard tracking live metrics, user cohorts, and automated anomaly alerts.',
-    tech_stack: ['React', 'Node.js', 'TypeScript', 'Docker'],
+      'High-throughput telemetry dashboard tracking live metrics, transaction status, automated anomaly alerts, and multi-currency reconciliations.',
+    tech_stack: ['React', 'Node.js', 'TypeScript', 'WebSockets', 'Tailwind'],
     project_url: '#',
     github_url: '#',
     is_featured: false,
@@ -81,41 +80,42 @@ export function PortfolioSection() {
   }, [projects, selectedTech]);
 
   return (
-    <section id="portfolio" className="py-24 bg-[#080808]">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="portfolio" className="py-24 relative overflow-hidden">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10"
+          className="text-center mb-12"
         >
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-sky-400 mb-3">
-            Selected Work
-          </span>
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wide border border-sky-400/25 bg-sky-400/5 text-sky-400 mb-4 backdrop-blur-md">
+            <Layers size={12} className="text-sky-400" />
+            <span>Engineering Showcase</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-['Outfit'] font-extrabold text-white mb-3 tracking-tight">
             FEATURED{' '}
-            <span className="bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-200 bg-clip-text text-transparent">
               PORTFOLIO
             </span>
           </h2>
-          <p className="text-gray-500 max-w-xl mx-auto">
-            A glimpse at the products, systems, and experiments I&apos;ve built.
+          <p className="text-slate-400 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
+            A curated showcase of real-world products, autonomous pipelines, and experimental systems I&apos;ve engineered.
           </p>
         </motion.div>
 
-        {/* Tech filter */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+        {/* Astryx Tech Filter Pills */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
           {allTechs.map((tech) => (
             <button
               key={tech}
               type="button"
               onClick={() => setSelectedTech(tech)}
               className={cn(
-                'px-3.5 py-1.5 rounded-full text-xs font-medium border transition-all',
+                'px-4 py-1.5 rounded-full text-xs font-semibold border transition-all duration-200 cursor-pointer',
                 selectedTech === tech
-                  ? 'border-amber-500 bg-amber-500/15 text-amber-400'
-                  : 'border-[#222] bg-[#111] text-gray-400 hover:border-[#444] hover:text-white'
+                  ? 'border-amber-400 bg-gradient-to-r from-amber-400 to-amber-500 text-black shadow-md'
+                  : 'border-white/[0.08] bg-white/[0.02] text-slate-400 hover:border-white/20 hover:text-white hover:bg-white/[0.05]'
               )}
             >
               {tech}
@@ -123,7 +123,7 @@ export function PortfolioSection() {
           ))}
         </div>
 
-        {/* Project cards */}
+        {/* Astryx Product Card Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((project, idx) => (
             <motion.div
@@ -133,38 +133,49 @@ export function PortfolioSection() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.08, duration: 0.4 }}
             >
-              <Card hover glow="blue" className="overflow-hidden h-full flex flex-col">
-                <div className="relative h-44 w-full bg-gradient-to-br from-[#141414] via-[#111] to-[#0a0a0a] border-b border-[#222] flex items-center justify-center">
+              <div className="astryx-card overflow-hidden h-full flex flex-col group hover:border-amber-400/50 transition-all duration-300">
+                <div className="relative h-48 w-full bg-gradient-to-br from-[#0f1422] via-[#090d16] to-[#06080e] border-b border-white/[0.08] flex items-center justify-center overflow-hidden">
                   {project.image_url ? (
                     <Image
                       src={project.image_url}
                       alt={project.title}
                       fill
-                      className="object-cover"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   ) : (
-                    <FolderGit2 size={40} className="text-amber-500/40" />
+                    <div className="flex flex-col items-center gap-2 text-slate-500 group-hover:text-amber-400 transition-colors">
+                      <FolderGit2 size={44} className="stroke-[1.5]" />
+                    </div>
                   )}
                   {project.is_featured && (
-                    <span className="absolute top-3 right-3 px-2.5 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-400 text-[11px] font-semibold">
+                    <span className="absolute top-3 right-3 px-2.5 py-0.5 rounded-full bg-amber-400/20 border border-amber-400/40 text-amber-300 text-[10px] font-bold tracking-wider uppercase backdrop-blur-md">
                       Featured
                     </span>
                   )}
                 </div>
 
-                <div className="p-6 flex-1 flex flex-col gap-4">
-                  <div>
-                    <h3 className="text-lg font-bold text-white mb-2">{project.title}</h3>
-                    <p className="text-sm text-gray-400 leading-relaxed">{project.description}</p>
+                <div className="p-6 flex-1 flex flex-col justify-between gap-4">
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-['Outfit'] font-bold text-white group-hover:text-amber-300 transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-xs text-slate-400 leading-relaxed line-clamp-3">
+                      {project.description}
+                    </p>
                   </div>
 
-                  <div className="flex flex-wrap gap-1.5 mt-auto">
+                  <div className="flex flex-wrap gap-1.5 pt-2">
                     {project.tech_stack?.map((tech) => (
-                      <Badge key={tech} label={tech} />
+                      <span
+                        key={tech}
+                        className="text-[10px] font-medium px-2.5 py-0.5 rounded-full bg-white/[0.03] border border-white/[0.08] text-slate-300"
+                      >
+                        {tech}
+                      </span>
                     ))}
                   </div>
 
-                  <div className="flex items-center gap-4 pt-3 border-t border-[#1e1e1e]">
+                  <div className="flex items-center gap-4 pt-3.5 border-t border-white/[0.06]">
                     {project.project_url && (
                       <a
                         href={project.project_url}
@@ -172,7 +183,8 @@ export function PortfolioSection() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-400 hover:text-amber-300 transition-colors"
                       >
-                        <ExternalLink size={14} /> Live Demo
+                        <ExternalLink size={13} />
+                        <span>Live Demo</span>
                       </a>
                     )}
                     {project.github_url && (
@@ -180,14 +192,15 @@ export function PortfolioSection() {
                         href={project.github_url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-400 hover:text-white transition-colors"
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-white transition-colors"
                       >
-                        <Github size={14} /> Source Code
+                        <Github size={13} />
+                        <span>Source Code</span>
                       </a>
                     )}
                   </div>
                 </div>
-              </Card>
+              </div>
             </motion.div>
           ))}
         </div>

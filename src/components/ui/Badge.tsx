@@ -57,7 +57,7 @@ export function Badge({ status, label, variant = 'default', className }: BadgePr
   return (
     <span
       className={cn(
-        'inline-flex items-center rounded-full border border-[#333] bg-[#1a1a1a] px-2.5 py-0.5 text-xs font-medium text-gray-300',
+        'inline-flex items-center rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-xs font-semibold text-slate-300 backdrop-blur-md',
         className
       )}
     >

@@ -20,7 +20,7 @@ const FALLBACK_SUPPORTERS: PublicSupporter[] = [
   {
     id: 'sample-1',
     donor_name: 'Alex Rivera',
-    donor_message: 'Keep pushing forward! Every $1 counts toward something big.',
+    donor_message: 'Keep pushing forward! Every $1 counts toward something truly extraordinary.',
     amount_usd: 5,
     currency: 'USDT',
     created_at: new Date(Date.now() - 86400000 * 2).toISOString(),
@@ -28,7 +28,7 @@ const FALLBACK_SUPPORTERS: PublicSupporter[] = [
   {
     id: 'sample-2',
     donor_name: 'Maya Chen',
-    donor_message: 'Love the transparency and ambition. Rooting for you!',
+    donor_message: 'Love the transparency, design quality, and ambition. Rooting for you!',
     amount_usd: 10,
     currency: 'ETH',
     created_at: new Date(Date.now() - 86400000 * 5).toISOString(),
@@ -36,7 +36,7 @@ const FALLBACK_SUPPORTERS: PublicSupporter[] = [
   {
     id: 'sample-3',
     donor_name: 'Anonymous',
-    donor_message: 'One dollar for a million-dollar dream.',
+    donor_message: 'One dollar for a million-dollar dream. Let’s make it happen.',
     amount_usd: 1,
     currency: 'BTC',
     created_at: new Date(Date.now() - 86400000 * 8).toISOString(),
@@ -92,8 +92,8 @@ export function SupportersWall() {
   };
 
   return (
-    <section id="supporters" className="py-24 bg-[#0a0a0a]">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="supporters" className="py-24 relative overflow-hidden">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -101,28 +101,29 @@ export function SupportersWall() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-amber-400 mb-3">
-            <Heart size={13} className="fill-amber-400" /> Verified Community
-          </span>
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wide border border-amber-400/25 bg-amber-400/5 text-amber-400 mb-4 backdrop-blur-md">
+            <Heart size={12} className="fill-amber-400" />
+            <span>Verified Community Ledger</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-['Outfit'] font-extrabold text-white mb-3 tracking-tight">
             SUPPORTERS{' '}
-            <span className="bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-200 bg-clip-text text-transparent">
               WALL
             </span>
           </h2>
-          <p className="text-gray-500 max-w-xl mx-auto">
-            Grateful for every verified supporter who helped move the needle forward.
+          <p className="text-slate-400 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
+            Grateful for every verified contributor helping prove that small, collective support compounds into extraordinary milestones.
           </p>
         </motion.div>
 
         {loading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[1, 2, 3].map((n) => (
-              <Card key={n} className="p-6 animate-pulse h-36 bg-[#111]">
-                <div className="h-4 w-1/3 bg-[#222] rounded mb-3" />
-                <div className="h-3 w-full bg-[#1a1a1a] rounded mb-2" />
-                <div className="h-3 w-2/3 bg-[#1a1a1a] rounded" />
-              </Card>
+              <div key={n} className="astryx-card p-6 animate-pulse h-36">
+                <div className="h-4 w-1/3 bg-white/10 rounded mb-3" />
+                <div className="h-3 w-full bg-white/5 rounded mb-2" />
+                <div className="h-3 w-2/3 bg-white/5 rounded" />
+              </div>
             ))}
           </div>
         ) : (
@@ -136,39 +137,42 @@ export function SupportersWall() {
                   viewport={{ once: true }}
                   transition={{ delay: (idx % 6) * 0.05, duration: 0.4 }}
                 >
-                  <Card hover glow="gold" className="p-6 h-full flex flex-col justify-between gap-4">
+                  <div className="astryx-card p-6 h-full flex flex-col justify-between gap-4 group hover:border-amber-400/40 transition-all duration-300">
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-sm">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400/20 to-amber-600/10 border border-amber-400/30 flex items-center justify-center text-amber-300 font-['Outfit'] font-bold text-sm shadow-[0_0_12px_rgba(245,158,11,0.2)]">
                           {(s.donor_name || 'A').charAt(0).toUpperCase()}
                         </div>
                         <div>
-                          <p className="font-bold text-white text-sm">
+                          <p className="font-['Outfit'] font-bold text-white text-sm group-hover:text-amber-300 transition-colors">
                             {s.donor_name || 'Anonymous'}
                           </p>
-                          <p className="text-xs text-gray-500">{formatDate(s.created_at)}</p>
+                          <p className="text-[11px] text-slate-400 font-mono">{formatDate(s.created_at)}</p>
                         </div>
                       </div>
-                      <span className="px-2.5 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs font-bold">
+                      <div className="px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/25 text-amber-300 text-xs font-mono font-bold tracking-tight">
                         ${Number(s.amount_usd).toLocaleString()}
-                      </span>
+                      </div>
                     </div>
 
                     {s.donor_message ? (
-                      <p className="text-sm text-gray-300 leading-relaxed flex items-start gap-2">
-                        <MessageCircle size={14} className="text-gray-600 shrink-0 mt-1" />
-                        <span>&ldquo;{s.donor_message}&rdquo;</span>
+                      <p className="text-xs md:text-sm text-slate-300 leading-relaxed flex items-start gap-2 bg-[#070a10]/50 p-3 rounded-xl border border-white/[0.04]">
+                        <MessageCircle size={14} className="text-slate-500 shrink-0 mt-0.5" />
+                        <span className="italic">&ldquo;{s.donor_message}&rdquo;</span>
                       </p>
                     ) : (
-                      <p className="text-xs text-gray-600 italic">Supported the dream</p>
+                      <p className="text-xs text-slate-500 italic flex items-center gap-1.5">
+                        <span className="w-1 h-1 rounded-full bg-slate-500" />
+                        <span>Fueled the dream</span>
+                      </p>
                     )}
-                  </Card>
+                  </div>
                 </motion.div>
               ))}
             </div>
 
             {hasMore && (
-              <div className="text-center mt-10">
+              <div className="text-center mt-12">
                 <Button variant="secondary" loading={loadingMore} onClick={handleLoadMore}>
                   Load More Supporters
                 </Button>

@@ -82,10 +82,9 @@ export function HeroSection() {
       {/* Radial glow */}
       <div className="absolute inset-0 bg-radial-gradient pointer-events-none" />
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-5"
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] rounded-full blur-[140px] pointer-events-none opacity-20"
         style={{
-          background:
-            'radial-gradient(circle, rgba(245,158,11,0.8) 0%, rgba(14,165,233,0.3) 50%, transparent 70%)',
+          background: 'radial-gradient(circle, #f59e0b 0%, #0ea5e9 40%, transparent 70%)',
         }}
       />
 
@@ -94,33 +93,33 @@ export function HeroSection() {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 35 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="max-w-5xl mx-auto"
+          className="max-w-4xl mx-auto"
         >
-          {/* Badge */}
+          {/* Astryx Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 mb-8"
+            transition={{ delay: 0.15, duration: 0.5 }}
+            className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1 mb-8 shadow-sm backdrop-blur-md"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse" />
-            <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest">
-              Dream in Progress
+            <span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-ping" />
+            <span className="text-[11px] font-bold text-amber-400 uppercase tracking-widest">
+              ONE DOLLAR PROJECT · THE GLOBAL DREAM
             </span>
           </motion.div>
 
           {/* Headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-black leading-[1.05] tracking-tight text-white mb-6"
+            transition={{ delay: 0.25, duration: 0.8 }}
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[1.08] tracking-tight text-white mb-6 font-['Outfit',sans-serif]"
           >
             ONE DOLLAR CAN HELP BUILD A{' '}
-            <span className="bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent underline decoration-amber-500/30 decoration-wavy underline-offset-8">
               MILLION-DOLLAR
             </span>{' '}
             DREAM.
@@ -128,46 +127,50 @@ export function HeroSection() {
 
           {/* Subtext */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.7 }}
-            className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed"
+            transition={{ delay: 0.4, duration: 0.7 }}
+            className="text-base sm:text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed font-normal"
           >
             I&apos;m building my future through technology, creativity, and innovation. If my
             vision inspires you, support my journey with just{' '}
-            <span className="text-amber-400 font-semibold">$1</span>.
+            <span className="text-amber-400 font-bold">$1</span>. Every contribution creates
+            extraordinary possibilities.
           </motion.p>
 
           {/* CTA buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.65, duration: 0.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            transition={{ delay: 0.55, duration: 0.6 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-3.5"
           >
-            <Button variant="primary" size="lg" onClick={scrollToDonate} className="min-w-[180px]">
+            <Button variant="primary" size="lg" onClick={scrollToDonate} className="min-w-[190px] text-sm">
               💛 DONATE $1
             </Button>
-            <Button variant="secondary" size="lg" onClick={scrollToHire} className="min-w-[180px]">
+            <Button variant="secondary" size="lg" onClick={scrollToHire} className="min-w-[190px] text-sm">
               HIRE ME
             </Button>
           </motion.div>
 
-          {/* Stats strip */}
+          {/* Astryx KPI Cards Grid */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.8 }}
-            className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-8 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="mt-16 grid grid-cols-3 gap-3 max-w-lg mx-auto"
           >
             {[
-              { label: 'Goal', value: '$10,000' },
-              { label: 'Min. Donation', value: '$1' },
-              { label: 'Dream', value: '∞' },
+              { label: 'Minimum', value: '$1 USD' },
+              { label: 'Target Goal', value: '$1,000,000' },
+              { label: 'Supporters', value: 'Global' },
             ].map((item) => (
-              <div key={item.label} className="flex flex-col gap-1">
-                <span className="text-2xl font-black text-white">{item.value}</span>
-                <span className="text-xs text-gray-600 uppercase tracking-widest">{item.label}</span>
+              <div
+                key={item.label}
+                className="p-3 rounded-xl border border-white/[0.08] bg-white/[0.02] backdrop-blur-md flex flex-col items-center justify-center gap-0.5"
+              >
+                <span className="text-sm sm:text-base font-extrabold text-white font-mono">{item.value}</span>
+                <span className="text-[10px] text-slate-500 uppercase tracking-wider font-medium">{item.label}</span>
               </div>
             ))}
           </motion.div>

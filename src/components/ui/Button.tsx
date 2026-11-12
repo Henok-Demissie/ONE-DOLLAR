@@ -17,18 +17,18 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-gradient-to-r from-amber-500 to-yellow-400 text-black font-bold hover:from-amber-400 hover:to-yellow-300 shadow-lg shadow-amber-500/25 border-0',
+    'bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-black font-extrabold hover:brightness-110 shadow-lg shadow-amber-500/20 border-0',
   secondary:
-    'border-2 border-amber-500 text-amber-400 bg-transparent hover:bg-amber-500/10 font-semibold',
+    'border border-white/15 text-white bg-white/[0.04] hover:bg-white/[0.08] hover:border-white/25 font-semibold backdrop-blur-sm',
   ghost:
-    'border border-white/10 text-gray-300 bg-transparent hover:bg-white/5 hover:text-white',
+    'border border-transparent text-gray-400 hover:text-white hover:bg-white/[0.06]',
   danger:
-    'bg-red-600 text-white font-semibold hover:bg-red-500 shadow-lg shadow-red-600/20',
+    'bg-red-500/90 text-white font-semibold hover:bg-red-500 shadow-lg shadow-red-500/20',
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
-  sm: 'px-3 py-1.5 text-sm rounded-md gap-1.5',
-  md: 'px-5 py-2.5 text-sm rounded-lg gap-2',
+  sm: 'px-3.5 py-1.5 text-xs rounded-lg gap-1.5',
+  md: 'px-5 py-2.5 text-sm rounded-xl gap-2',
   lg: 'px-7 py-3.5 text-base rounded-xl gap-2.5',
 };
 

@@ -29,12 +29,11 @@ export function Card({
 }: CardProps) {
   return (
     <motion.div
-      whileHover={hover ? { y: -4 } : undefined}
+      whileHover={hover ? { y: -3 } : undefined}
       transition={{ duration: 0.2 }}
       className={cn(
-        'rounded-xl border border-[#222222] bg-[#111111] transition-all duration-300',
-        glass && 'backdrop-blur-sm bg-[#111111]/80',
-        hover && 'cursor-default',
+        'rounded-2xl border border-white/[0.08] bg-[#0c111a]/80 backdrop-blur-xl transition-all duration-300 shadow-xl shadow-black/40',
+        hover && 'hover:border-amber-500/40 hover:shadow-2xl hover:shadow-black/60',
         hover && glowStyles[glow],
         className
       )}

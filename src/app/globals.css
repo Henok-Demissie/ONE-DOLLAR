@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,14 +6,19 @@
 
 @layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #f5f5f5;
-    --gold: #FFD700;
-    --gold-light: #ffe040;
-    --gold-dark: #cc9900;
-    --card-bg: #111111;
-    --border: #2a2a2a;
-    --muted: #888888;
+    --bg-page: #07090e;
+    --bg-surface: #0d1117;
+    --bg-surface-elevated: #131822;
+    --bg-surface-glass: rgba(13, 17, 23, 0.75);
+    --border-subtle: rgba(255, 255, 255, 0.07);
+    --border-prominent: rgba(255, 255, 255, 0.12);
+    --accent-gold: #f59e0b;
+    --accent-gold-light: #fbbf24;
+    --accent-emerald: #10b981;
+    --accent-sky: #0ea5e9;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-tertiary: #64748b;
   }
 
   * {
@@ -24,113 +29,134 @@
 
   html {
     scroll-behavior: smooth;
+    color-scheme: dark;
   }
 
   body {
-    background-color: var(--background);
-    color: var(--foreground);
-    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    background-image: 
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(245, 158, 11, 0.08), transparent 70%),
+      radial-gradient(circle at 100% 30%, rgba(14, 165, 233, 0.04), transparent 40%),
+      radial-gradient(circle at 0% 70%, rgba(16, 185, 129, 0.03), transparent 40%);
+    background-attachment: fixed;
   }
 
-  /* Custom scrollbar */
+  /* Astryx-style sleek micro scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #111111;
+    background: transparent;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #FFD700;
-    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #e6b800;
+    background: rgba(245, 158, 11, 0.6);
   }
 
   * {
     scrollbar-width: thin;
-    scrollbar-color: #FFD700 #111111;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
   }
 }
 
 @layer components {
-  .gradient-gold {
-    background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
-    background-size: 200% 200%;
+  /* Astryx Precision Pill */
+  .astryx-pill {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wide border;
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
   }
 
-  .text-gradient {
-    background: linear-gradient(135deg, #FFD700, #FFA500, #FFD700);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  /* Astryx Studio Glass Card */
+  .astryx-card {
+    @apply rounded-2xl border transition-all duration-300;
+    background: linear-gradient(180deg, rgba(17, 24, 39, 0.7) 0%, rgba(10, 15, 26, 0.85) 100%);
+    border-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
   }
 
-  .card-dark {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 1rem;
+  .astryx-card:hover {
+    border-color: rgba(245, 158, 11, 0.3);
+    box-shadow: 0 14px 40px -10px rgba(0, 0, 0, 0.7), 0 0 20px -5px rgba(245, 158, 11, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
-  .btn-gold {
-    @apply bg-gold-500 hover:bg-gold-400 text-dark-900 font-bold py-3 px-6 rounded-xl transition-all duration-200;
-    animation: pulse-gold 2s ease-in-out infinite;
+  /* Astryx Selectable Card for Payment & Options */
+  .astryx-selectable {
+    @apply rounded-xl border p-3.5 transition-all duration-200 cursor-pointer;
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.07);
   }
 
-  .btn-outline-gold {
-    @apply border border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-dark-900 font-semibold py-3 px-6 rounded-xl transition-all duration-200;
+  .astryx-selectable:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.15);
   }
 
-  .shimmer-overlay {
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(255, 215, 0, 0.15) 50%,
-      transparent 100%
-    );
-    background-size: 200% 100%;
-    animation: shimmer 2.5s linear infinite;
+  .astryx-selectable-active {
+    background: rgba(245, 158, 11, 0.08) !important;
+    border-color: rgba(245, 158, 11, 0.7) !important;
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.15);
   }
 
-  .section-padding {
-    @apply px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  /* Astryx Button Primitives */
+  .astryx-btn-primary {
+    @apply inline-flex items-center justify-center font-bold text-black rounded-xl transition-all duration-200;
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    box-shadow: 0 4px 16px -2px rgba(245, 158, 11, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.35);
   }
 
-  .container-max {
-    @apply max-w-7xl mx-auto;
+  .astryx-btn-primary:hover {
+    background: linear-gradient(135deg, #fde68a 0%, #fbbf24 100%);
+    box-shadow: 0 6px 22px -2px rgba(245, 158, 11, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    transform: translateY(-1px);
   }
-}
 
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
+  .astryx-btn-secondary {
+    @apply inline-flex items-center justify-center font-semibold text-white rounded-xl transition-all duration-200 border;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
   }
-  100% {
-    background-position: 200% 0;
-  }
-}
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
+  .astryx-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-1px);
   }
-  50% {
-    transform: translateY(-10px);
-  }
-}
 
-@keyframes pulse-gold {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4);
+  .astryx-badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold border;
   }
-  50% {
-    box-shadow: 0 0 0 15px rgba(255, 215, 0, 0);
+
+  .astryx-badge-gold {
+    background: rgba(245, 158, 11, 0.12);
+    border-color: rgba(245, 158, 11, 0.3);
+    color: #fbbf24;
+  }
+
+  .astryx-badge-green {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.3);
+    color: #34d399;
+  }
+
+  .astryx-badge-blue {
+    background: rgba(14, 165, 233, 0.12);
+    border-color: rgba(14, 165, 233, 0.3);
+    color: #38bdf8;
   }
 }

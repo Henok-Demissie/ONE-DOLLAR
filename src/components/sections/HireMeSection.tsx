@@ -13,60 +13,72 @@ import {
   Lightbulb,
   Send,
   CheckCircle2,
+  ArrowRight,
+  Briefcase,
+  Check,
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Input, Textarea } from '@/components/ui/Input';
+import { cn } from '@/lib/utils';
 
 const HIRE_SERVICES = [
   {
     title: 'Website Development',
-    description: 'High-converting, responsive landing pages, marketing sites, and brand experiences.',
+    description: 'High-converting, responsive landing pages, marketing sites, and brand experiences with Next.js.',
     icon: Globe,
     color: 'gold' as const,
+    badge: 'Popular',
   },
   {
     title: 'Full-Stack Development',
-    description: 'End-to-end web apps with Next.js, React, Node.js, PostgreSQL, and cloud infra.',
+    description: 'End-to-end web apps with Next.js, React, Node.js, PostgreSQL, and cloud serverless infra.',
     icon: Code,
     color: 'blue' as const,
+    badge: 'Full Stack',
   },
   {
     title: 'AI Solutions',
     description: 'Custom LLM agents, RAG pipelines, AI copilots, and intelligent workflow integrations.',
     icon: Brain,
     color: 'gold' as const,
+    badge: 'Trending',
   },
   {
     title: 'Machine Learning',
-    description: 'Predictive modeling, computer vision, NLP pipelines, and model deployment.',
+    description: 'Predictive modeling, computer vision, NLP pipelines, and production model deployment.',
     icon: Cpu,
     color: 'blue' as const,
+    badge: 'Data & ML',
   },
   {
     title: 'Automation Systems',
-    description: 'End-to-end workflow automation, bots, scrapers, webhooks, and API orchestration.',
+    description: 'Autonomous workflow bots, data scrapers, webhooks, and multi-API cloud orchestration.',
     icon: Zap,
     color: 'gold' as const,
+    badge: 'High ROI',
   },
   {
     title: 'Software Development',
     description: 'Robust backend services, CLI tools, microservices, and scalable software architecture.',
     icon: Terminal,
     color: 'blue' as const,
+    badge: 'Core Eng',
   },
   {
     title: 'Business Tech Solutions',
-    description: 'Custom CRMs, internal dashboards, payment systems, and SaaS platforms for growth.',
+    description: 'Custom CRMs, internal telemetry dashboards, payment checkout, and SaaS foundations.',
     icon: Building,
     color: 'gold' as const,
+    badge: 'Enterprise',
   },
   {
     title: 'Technical Consulting',
     description: 'Architecture audits, performance tuning, MVP roadmapping, and tech stack advisory.',
     icon: Lightbulb,
     color: 'blue' as const,
+    badge: 'Advisory',
   },
 ];
 
@@ -151,8 +163,8 @@ export function HireMeSection() {
   };
 
   return (
-    <section id="hire" className="py-24 bg-[#0a0a0a]">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="hire" className="py-24 relative overflow-hidden">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -160,23 +172,23 @@ export function HireMeSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-sky-400 mb-3">
-            Services &amp; Collaboration
-          </span>
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wide border border-sky-400/25 bg-sky-400/5 text-sky-400 mb-4 backdrop-blur-md">
+            <Briefcase size={12} className="text-sky-400" />
+            <span>Services &amp; Engineering Consultation</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-['Outfit'] font-extrabold text-white mb-4 tracking-tight">
             LET&apos;S BUILD SOMETHING{' '}
-            <span className="bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-200 bg-clip-text text-transparent">
               GREAT TOGETHER.
             </span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Need a developer, AI engineer, or technical partner? Click any service below or tell me
-            about your project.
+          <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+            Need a high-velocity full-stack developer, AI engineer, or technical partner? Select any service below to customize your project brief.
           </p>
         </motion.div>
 
-        {/* 8 Service Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+        {/* 8 Astryx-styled Service Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-16">
           {HIRE_SERVICES.map((service, idx) => {
             const Icon = service.icon;
             const isSelected = form.project_type === service.title;
@@ -186,33 +198,65 @@ export function HireMeSection() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.05, duration: 0.4 }}
+                transition={{ delay: idx * 0.04, duration: 0.4 }}
               >
-                <Card
-                  hover
-                  glow={service.color}
+                <div
                   onClick={() => handleSelectService(service.title)}
-                  className={`p-6 h-full flex flex-col gap-3 cursor-pointer ${
-                    isSelected ? 'border-amber-500/70 bg-amber-500/5' : ''
-                  }`}
+                  className={cn(
+                    'astryx-card p-5 h-full flex flex-col justify-between gap-4 cursor-pointer relative transition-all duration-300 group',
+                    isSelected
+                      ? 'border-amber-400/80 bg-amber-400/[0.06] shadow-[0_0_24px_rgba(245,158,11,0.18)] ring-1 ring-amber-400/40'
+                      : 'hover:border-white/20 hover:bg-white/[0.04]'
+                  )}
                 >
-                  <div
-                    className={`w-11 h-11 rounded-xl flex items-center justify-center ${
-                      service.color === 'gold'
-                        ? 'bg-amber-500/15 text-amber-400'
-                        : 'bg-sky-500/15 text-sky-400'
-                    }`}
-                  >
-                    <Icon size={20} />
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div
+                        className={cn(
+                          'w-10 h-10 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105',
+                          service.color === 'gold'
+                            ? 'bg-amber-400/15 text-amber-400 border border-amber-400/25'
+                            : 'bg-sky-400/15 text-sky-400 border border-sky-400/25'
+                        )}
+                      >
+                        <Icon size={19} />
+                      </div>
+                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-white/[0.04] text-slate-400 border border-white/[0.08]">
+                        {service.badge}
+                      </span>
+                    </div>
+
+                    <div>
+                      <h3 className="text-base font-['Outfit'] font-bold text-white group-hover:text-amber-300 transition-colors">
+                        {service.title}
+                      </h3>
+                      <p className="text-xs text-slate-400 leading-relaxed mt-1.5 line-clamp-3">
+                        {service.description}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-base font-bold text-white">{service.title}</h3>
-                  <p className="text-xs text-gray-400 leading-relaxed flex-1">
-                    {service.description}
-                  </p>
-                  <span className="text-xs font-semibold text-amber-400 mt-1">
-                    {isSelected ? '✓ Selected' : 'Select service →'}
-                  </span>
-                </Card>
+
+                  <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between">
+                    <span
+                      className={cn(
+                        'text-xs font-semibold flex items-center gap-1 transition-colors',
+                        isSelected ? 'text-amber-400' : 'text-slate-400 group-hover:text-white'
+                      )}
+                    >
+                      {isSelected ? (
+                        <>
+                          <Check size={13} className="stroke-[3]" />
+                          <span>Selected</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>Select Service</span>
+                          <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
+                        </>
+                      )}
+                    </span>
+                  </div>
+                </div>
               </motion.div>
             );
           })}
@@ -220,17 +264,17 @@ export function HireMeSection() {
 
         {/* Hire Me Form */}
         <div id="hire-form" className="max-w-3xl mx-auto">
-          <Card className="p-6 md:p-8">
+          <Card className="p-6 md:p-10 shadow-2xl backdrop-blur-2xl">
             {submittedId ? (
               <div className="text-center py-8">
-                <div className="w-16 h-16 rounded-full bg-green-500/15 border border-green-500/40 flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle2 size={32} className="text-green-400" />
+                <div className="w-16 h-16 rounded-full bg-emerald-500/15 border border-emerald-400/40 flex items-center justify-center mx-auto mb-4 shadow-[0_0_20px_rgba(16,185,129,0.25)]">
+                  <CheckCircle2 size={32} className="text-emerald-400" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">Inquiry Submitted!</h3>
-                <p className="text-gray-400 text-sm mb-6">
+                <h3 className="text-2xl font-['Outfit'] font-bold text-white mb-2">Inquiry Submitted!</h3>
+                <p className="text-slate-300 text-sm mb-6">
                   Thank you for reaching out. Your request ID is{' '}
-                  <code className="text-amber-400 font-mono">{submittedId.slice(0, 8)}</code>.
-                  I&apos;ll review your project brief and reply shortly.
+                  <code className="text-amber-400 font-mono font-bold">{submittedId.slice(0, 8)}</code>.
+                  I&apos;ll review your project brief and reply within 24 hours.
                 </p>
                 <Button variant="secondary" onClick={() => setSubmittedId(null)}>
                   Send Another Request
@@ -238,11 +282,16 @@ export function HireMeSection() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="mb-2">
-                  <h3 className="text-xl font-bold text-white">Start a Project</h3>
-                  <p className="text-xs text-gray-500 mt-1">
-                    Tell me about what you&apos;re building and your timeline.
-                  </p>
+                <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+                  <div>
+                    <h3 className="text-xl font-['Outfit'] font-bold text-white">Start a Project Brief</h3>
+                    <p className="text-xs text-slate-400 mt-0.5">
+                      Tell me about what you&apos;re building, timeline, and goals.
+                    </p>
+                  </div>
+                  <div className="astryx-pill text-amber-400 border-amber-400/30 text-[11px] hidden sm:inline-flex">
+                    {form.project_type}
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -271,17 +320,17 @@ export function HireMeSection() {
                     onChange={(e) => setForm({ ...form, company: e.target.value })}
                   />
                   <div className="flex flex-col gap-1.5 w-full">
-                    <label htmlFor="project-type" className="text-sm font-medium text-gray-300">
+                    <label htmlFor="project-type" className="text-sm font-medium text-slate-300">
                       Project Type *
                     </label>
                     <select
                       id="project-type"
                       value={form.project_type}
                       onChange={(e) => setForm({ ...form, project_type: e.target.value })}
-                      className="w-full rounded-lg border border-[#333] bg-[#0d0d0d] px-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500/70"
+                      className="w-full rounded-xl border border-white/[0.08] bg-[#090d15]/80 px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-500/25 focus:border-amber-400 transition-all cursor-pointer"
                     >
                       {HIRE_SERVICES.map((s) => (
-                        <option key={s.title} value={s.title}>
+                        <option key={s.title} value={s.title} className="bg-[#090d15] text-white">
                           {s.title}
                         </option>
                       ))}
@@ -291,17 +340,17 @@ export function HireMeSection() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-1.5 w-full">
-                    <label htmlFor="budget-range" className="text-sm font-medium text-gray-300">
+                    <label htmlFor="budget-range" className="text-sm font-medium text-slate-300">
                       Estimated Budget *
                     </label>
                     <select
                       id="budget-range"
                       value={form.budget}
                       onChange={(e) => setForm({ ...form, budget: e.target.value })}
-                      className="w-full rounded-lg border border-[#333] bg-[#0d0d0d] px-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500/70"
+                      className="w-full rounded-xl border border-white/[0.08] bg-[#090d15]/80 px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-500/25 focus:border-amber-400 transition-all cursor-pointer"
                     >
                       {BUDGET_RANGES.map((b) => (
-                        <option key={b} value={b}>
+                        <option key={b} value={b} className="bg-[#090d15] text-white">
                           {b}
                         </option>
                       ))}
@@ -319,19 +368,20 @@ export function HireMeSection() {
                 <Textarea
                   label="Project Description *"
                   rows={4}
-                  placeholder="Describe your goals, key features, and anything else I should know..."
+                  placeholder="Describe your project vision, target users, core features, and references..."
                   value={form.description}
                   onChange={(e) => setForm({ ...form, description: e.target.value })}
                   error={errors.description}
                 />
 
-                <Button type="submit" variant="primary" size="lg" className="w-full" loading={loading}>
-                  <Send size={16} /> Submit Hire Request
+                <Button type="submit" variant="primary" size="lg" className="w-full justify-center" loading={loading}>
+                  <Send size={16} />
+                  <span>Submit Inquiry</span>
                 </Button>
 
-                <div className="flex items-center justify-center gap-2 pt-2 text-[11px] text-gray-500">
+                <div className="flex items-center justify-center gap-2 pt-2 text-[11px] text-slate-400">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                  <span>US Bank Transfers (FedNow, ACH, Wire via Lead Bank) &amp; Crypto accepted for client invoicing</span>
+                  <span>Invoicing available via US Bank Transfer (FedNow, ACH, Wire via Lead Bank) &amp; Crypto</span>
                 </div>
               </form>
             )}
