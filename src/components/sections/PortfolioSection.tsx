@@ -95,7 +95,7 @@ export function PortfolioSection() {
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-2.5 font-['Outfit']">
             Featured{' '}
-            <span className="bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent font-extrabold">
+            <span className="bg-gradient-to-r from-emerald-400 via-teal-200 to-green-300 bg-clip-text text-transparent font-extrabold drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]">
               portfolio
             </span>
           </h2>
@@ -114,8 +114,8 @@ export function PortfolioSection() {
               className={cn(
                 'px-4 py-1.5 rounded-full text-xs font-semibold border transition-all duration-200 cursor-pointer',
                 selectedTech === tech
-                  ? 'border-amber-400 bg-gradient-to-r from-amber-400 to-amber-500 text-black shadow-md'
-                  : 'border-white/[0.08] bg-white/[0.02] text-slate-400 hover:border-white/20 hover:text-white hover:bg-white/[0.05]'
+                  ? 'border-emerald-400 bg-gradient-to-r from-emerald-400 to-teal-400 text-black font-bold shadow-md shadow-emerald-500/25'
+                  : 'border-white/[0.08] bg-white/[0.02] text-slate-400 hover:border-emerald-400/30 hover:text-white hover:bg-white/[0.05]'
               )}
             >
               {tech}
@@ -133,7 +133,7 @@ export function PortfolioSection() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.08, duration: 0.4 }}
             >
-              <div className="astryx-card overflow-hidden h-full flex flex-col group hover:border-amber-400/50 transition-all duration-300">
+              <div className="astryx-card overflow-hidden h-full flex flex-col group hover:border-emerald-400/50 transition-all duration-300">
                 <div className="relative h-48 w-full bg-gradient-to-br from-[#0f1422] via-[#090d16] to-[#06080e] border-b border-white/[0.08] flex items-center justify-center overflow-hidden">
                   {project.image_url ? (
                     <Image
@@ -143,12 +143,12 @@ export function PortfolioSection() {
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   ) : (
-                    <div className="flex flex-col items-center gap-2 text-slate-500 group-hover:text-amber-400 transition-colors">
+                    <div className="flex flex-col items-center gap-2 text-slate-500 group-hover:text-emerald-400 transition-colors">
                       <FolderGit2 size={44} className="stroke-[1.5]" />
                     </div>
                   )}
                   {project.is_featured && (
-                    <span className="absolute top-3 right-3 px-2.5 py-0.5 rounded-full bg-amber-400/20 border border-amber-400/40 text-amber-300 text-[10px] font-bold tracking-wider uppercase backdrop-blur-md">
+                    <span className="absolute top-3 right-3 px-2.5 py-0.5 rounded-full bg-emerald-400/20 border border-emerald-400/40 text-emerald-300 text-[10px] font-bold tracking-wider uppercase backdrop-blur-md shadow-[0_0_10px_rgba(16,185,129,0.3)]">
                       Featured
                     </span>
                   )}
@@ -156,7 +156,7 @@ export function PortfolioSection() {
 
                 <div className="p-6 flex-1 flex flex-col justify-between gap-4">
                   <div className="space-y-2">
-                    <h3 className="text-lg font-['Outfit'] font-bold text-white group-hover:text-amber-300 transition-colors">
+                    <h3 className="text-lg font-['Outfit'] font-bold text-white group-hover:text-emerald-300 transition-colors">
                       {project.title}
                     </h3>
                     <p className="text-xs text-slate-400 leading-relaxed line-clamp-3">
@@ -181,7 +181,7 @@ export function PortfolioSection() {
                         href={project.project_url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-400 hover:text-amber-300 transition-colors"
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-400 hover:text-emerald-300 transition-colors"
                       >
                         <ExternalLink size={13} />
                         <span>Live Demo</span>

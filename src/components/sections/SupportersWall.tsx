@@ -101,13 +101,13 @@ export function SupportersWall() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wide border border-amber-400/25 bg-amber-400/5 text-amber-400 mb-4 backdrop-blur-md">
-            <Heart size={12} className="fill-amber-400" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wide border border-emerald-400/30 bg-emerald-400/10 text-emerald-300 mb-4 backdrop-blur-md shadow-[0_0_12px_rgba(16,185,129,0.2)]">
+            <Heart size={12} className="fill-emerald-400 text-emerald-400" />
             <span>Verified Community Ledger</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-2 font-['Outfit']">
             Supporters{' '}
-            <span className="bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent font-extrabold">
+            <span className="bg-gradient-to-r from-emerald-400 via-teal-200 to-green-300 bg-clip-text text-transparent font-extrabold drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]">
               wall
             </span>
           </h2>
@@ -137,20 +137,20 @@ export function SupportersWall() {
                   viewport={{ once: true }}
                   transition={{ delay: (idx % 6) * 0.05, duration: 0.4 }}
                 >
-                  <div className="astryx-card p-6 h-full flex flex-col justify-between gap-4 group hover:border-amber-400/40 transition-all duration-300">
+                  <div className="astryx-card p-6 h-full flex flex-col justify-between gap-4 group hover:border-emerald-400/50 transition-all duration-300">
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400/20 to-amber-600/10 border border-amber-400/30 flex items-center justify-center text-amber-300 font-['Outfit'] font-bold text-sm shadow-[0_0_12px_rgba(245,158,11,0.2)]">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400/20 to-teal-600/10 border border-emerald-400/30 flex items-center justify-center text-emerald-300 font-['Outfit'] font-bold text-sm shadow-[0_0_12px_rgba(16,185,129,0.25)]">
                           {(s.donor_name || 'A').charAt(0).toUpperCase()}
                         </div>
                         <div>
-                          <p className="font-['Outfit'] font-bold text-white text-sm group-hover:text-amber-300 transition-colors">
+                          <p className="font-['Outfit'] font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
                             {s.donor_name || 'Anonymous'}
                           </p>
                           <p className="text-[11px] text-slate-400 font-mono">{formatDate(s.created_at)}</p>
                         </div>
                       </div>
-                      <div className="px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/25 text-amber-300 text-xs font-mono font-bold tracking-tight">
+                      <div className="px-3 py-1 rounded-full bg-emerald-400/10 border border-emerald-400/30 text-emerald-300 text-xs font-mono font-bold tracking-tight shadow-[0_0_8px_rgba(16,185,129,0.15)]">
                         ${Number(s.amount_usd).toLocaleString()}
                       </div>
                     </div>

@@ -60,7 +60,7 @@ export async function sendHireRequestNotification(hireRequest: HireRequest): Pro
       subject: `🎯 New Hire Request from ${hireRequest.client_name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0f0f0f; color: #ffffff; padding: 24px; border-radius: 8px;">
-          <h2 style="color: #F59E0B;">New Hire Request</h2>
+          <h2 style="color: #00F59B;">New Hire Request</h2>
           <table style="width: 100%; border-collapse: collapse;">
             <tr><td style="padding: 8px; color: #9CA3AF;">Name:</td><td style="padding: 8px;">${hireRequest.client_name}</td></tr>
             <tr><td style="padding: 8px; color: #9CA3AF;">Email:</td><td style="padding: 8px;">${hireRequest.email}</td></tr>
@@ -69,7 +69,7 @@ export async function sendHireRequestNotification(hireRequest: HireRequest): Pro
             <tr><td style="padding: 8px; color: #9CA3AF;">Budget:</td><td style="padding: 8px;">${hireRequest.budget_range}</td></tr>
             <tr><td style="padding: 8px; color: #9CA3AF;">Deadline:</td><td style="padding: 8px;">${hireRequest.deadline}</td></tr>
           </table>
-          <div style="margin-top: 16px; padding: 12px; background: #1a1a1a; border-radius: 4px; border-left: 3px solid #F59E0B;">
+          <div style="margin-top: 16px; padding: 12px; background: #1a1a1a; border-radius: 4px; border-left: 3px solid #00F59B;">
             <strong>Description:</strong><br/>
             <p style="margin-top: 8px;">${hireRequest.description}</p>
           </div>
@@ -104,12 +104,12 @@ export async function sendDonationConfirmation(
       subject: `✅ Your $${donation.amount_usd} donation is being verified`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0f0f0f; color: #ffffff; padding: 24px; border-radius: 8px;">
-          <h2 style="color: #F59E0B;">Thank You for Your Support! 🙏</h2>
+          <h2 style="color: #00F59B;">Thank You for Your Support! 🙏</h2>
           <p>Your donation has been received and is pending admin verification.</p>
           <div style="padding: 16px; background: #1a1a1a; border-radius: 8px; border: 1px solid #374151; margin: 16px 0;">
             <p style="margin: 4px 0;"><strong>Amount:</strong> $${donation.amount_usd} USD</p>
             <p style="margin: 4px 0;"><strong>Currency:</strong> ${donation.currency} (${donation.network})</p>
-            <p style="margin: 4px 0;"><strong>Status:</strong> <span style="color: #F59E0B;">Pending Verification</span></p>
+            <p style="margin: 4px 0;"><strong>Status:</strong> <span style="color: #00F59B;">Pending Verification</span></p>
             <p style="margin: 4px 0;"><strong>Reference:</strong> ${donation.id}</p>
           </div>
           <p style="color: #9CA3AF;">Once an admin verifies your transaction on the blockchain, your donation will be marked as confirmed.</p>

@@ -178,7 +178,7 @@ export function HireMeSection() {
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-3 font-['Outfit']">
             Let&apos;s build something{' '}
-            <span className="bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent font-extrabold">
+            <span className="bg-gradient-to-r from-emerald-400 via-teal-200 to-green-300 bg-clip-text text-transparent font-extrabold drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]">
               great together.
             </span>
           </h2>
@@ -205,8 +205,8 @@ export function HireMeSection() {
                   className={cn(
                     'astryx-card p-5 h-full flex flex-col justify-between gap-4 cursor-pointer relative transition-all duration-300 group',
                     isSelected
-                      ? 'border-amber-400/80 bg-amber-400/[0.06] shadow-[0_0_24px_rgba(245,158,11,0.18)] ring-1 ring-amber-400/40'
-                      : 'hover:border-white/20 hover:bg-white/[0.04]'
+                      ? 'border-emerald-400/80 bg-emerald-400/[0.08] shadow-[0_0_25px_rgba(16,185,129,0.25)] ring-1 ring-emerald-400/50'
+                      : 'hover:border-emerald-400/30 hover:bg-white/[0.04]'
                   )}
                 >
                   <div className="space-y-3">
@@ -215,8 +215,8 @@ export function HireMeSection() {
                         className={cn(
                           'w-10 h-10 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105',
                           service.color === 'gold'
-                            ? 'bg-amber-400/15 text-amber-400 border border-amber-400/25'
-                            : 'bg-sky-400/15 text-sky-400 border border-sky-400/25'
+                            ? 'bg-emerald-400/15 text-emerald-400 border border-emerald-400/25 shadow-[0_0_10px_rgba(16,185,129,0.2)]'
+                            : 'bg-teal-400/15 text-teal-300 border border-teal-400/25'
                         )}
                       >
                         <Icon size={19} />
@@ -227,7 +227,7 @@ export function HireMeSection() {
                     </div>
 
                     <div>
-                      <h3 className="text-base font-['Outfit'] font-bold text-white group-hover:text-amber-300 transition-colors">
+                      <h3 className="text-base font-['Outfit'] font-bold text-white group-hover:text-emerald-300 transition-colors">
                         {service.title}
                       </h3>
                       <p className="text-xs text-slate-400 leading-relaxed mt-1.5 line-clamp-3">
@@ -240,7 +240,7 @@ export function HireMeSection() {
                     <span
                       className={cn(
                         'text-xs font-semibold flex items-center gap-1 transition-colors',
-                        isSelected ? 'text-amber-400' : 'text-slate-400 group-hover:text-white'
+                        isSelected ? 'text-emerald-400 font-bold' : 'text-slate-400 group-hover:text-white'
                       )}
                     >
                       {isSelected ? (
@@ -273,7 +273,7 @@ export function HireMeSection() {
                 <h3 className="text-2xl font-['Outfit'] font-bold text-white mb-2">Inquiry Submitted!</h3>
                 <p className="text-slate-300 text-sm mb-6">
                   Thank you for reaching out. Your request ID is{' '}
-                  <code className="text-amber-400 font-mono font-bold">{submittedId.slice(0, 8)}</code>.
+                  <code className="text-emerald-400 font-mono font-bold">{submittedId.slice(0, 8)}</code>.
                   I&apos;ll review your project brief and reply within 24 hours.
                 </p>
                 <Button variant="secondary" onClick={() => setSubmittedId(null)}>
@@ -289,7 +289,7 @@ export function HireMeSection() {
                       Tell me about what you&apos;re building, timeline, and goals.
                     </p>
                   </div>
-                  <div className="astryx-pill text-amber-400 border-amber-400/30 text-[11px] hidden sm:inline-flex">
+                  <div className="astryx-pill text-emerald-400 border-emerald-400/30 text-[11px] hidden sm:inline-flex shadow-[0_0_10px_rgba(16,185,129,0.2)]">
                     {form.project_type}
                   </div>
                 </div>

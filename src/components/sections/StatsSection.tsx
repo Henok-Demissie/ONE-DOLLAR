@@ -67,8 +67,8 @@ function StatCard({
         <div
           className={`w-9 h-9 rounded-xl flex items-center justify-center border ${
             color === 'gold'
-              ? 'bg-amber-500/10 text-amber-400 border-amber-500/20'
-              : 'bg-sky-500/10 text-sky-400 border-sky-500/20'
+              ? 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30 shadow-[0_0_12px_rgba(16,185,129,0.2)]'
+              : 'bg-teal-500/15 text-teal-300 border-teal-500/30'
           }`}
         >
           <Icon size={17} />
@@ -138,13 +138,13 @@ export function StatsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide text-amber-300 bg-amber-400/5 border border-amber-400/20 mb-3 backdrop-blur-md">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide text-emerald-300 bg-emerald-400/10 border border-emerald-400/30 mb-3 backdrop-blur-md shadow-[0_0_12px_rgba(16,185,129,0.2)]">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             <span>Live Telemetry</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-2 font-['Outfit']">
             The dream in{' '}
-            <span className="bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent font-extrabold">
+            <span className="bg-gradient-to-r from-emerald-400 via-teal-200 to-green-300 bg-clip-text text-transparent font-extrabold drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]">
               numbers
             </span>
           </h2>

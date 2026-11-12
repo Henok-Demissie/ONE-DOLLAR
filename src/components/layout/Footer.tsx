@@ -43,7 +43,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="md:col-span-2 space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center font-['Outfit'] font-black text-black text-sm shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-400 via-teal-300 to-green-400 flex items-center justify-center font-['Outfit'] font-black text-black text-sm shadow-[0_0_15px_rgba(16,185,129,0.35)]">
                 $1
               </div>
               <span className="text-lg font-['Outfit'] font-bold tracking-tight text-white">
@@ -63,7 +63,7 @@ export function Footer() {
                   aria-label={label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl border border-white/[0.08] bg-white/[0.02] text-slate-400 hover:text-amber-400 hover:border-amber-400/40 hover:bg-white/[0.05] transition-all duration-200"
+                  className="p-2.5 rounded-xl border border-white/[0.08] bg-white/[0.02] text-slate-400 hover:text-emerald-400 hover:border-emerald-400/40 hover:bg-white/[0.05] transition-all duration-200"
                 >
                   <Icon size={16} />
                 </a>
@@ -81,7 +81,7 @@ export function Footer() {
                 <li key={link.href}>
                   <button
                     onClick={() => handleScroll(link.href)}
-                    className="text-sm text-slate-400 hover:text-amber-400 transition-colors duration-200 text-left cursor-pointer"
+                    className="text-sm text-slate-400 hover:text-emerald-400 transition-colors duration-200 text-left cursor-pointer"
                   >
                     {link.label}
                   </button>
@@ -100,7 +100,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-slate-400 hover:text-amber-400 transition-colors duration-200 flex items-center gap-1.5"
+                    className="text-sm text-slate-400 hover:text-emerald-400 transition-colors duration-200 flex items-center gap-1.5"
                   >
                     <span>{link.label}</span>
                     <ExternalLink size={12} className="opacity-40" />
