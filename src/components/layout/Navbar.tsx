@@ -12,8 +12,9 @@ const navLinks = [
   { href: '/#donate', label: 'Donate' },
   { href: '/#hire', label: 'Hire Me' },
   { href: '/#portfolio', label: 'Portfolio' },
+  { href: '/#about', label: 'Story & CV' },
   { href: '/#supporters', label: 'Supporters' },
-  { href: '/#about', label: 'About' },
+  { href: '/Henok_Demissie_Resume.pdf', label: 'Resume (PDF)' },
 ];
 
 export function Navbar() {
@@ -34,6 +35,8 @@ export function Navbar() {
       if (el) {
         el.scrollIntoView({ behavior: 'smooth' });
       }
+    } else if (href.endsWith('.pdf') || href.startsWith('http')) {
+      window.open(href, '_blank', 'noopener,noreferrer');
     }
   };
 

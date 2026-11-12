@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
-import { ChevronDown, Sparkles, ArrowRight, ShieldCheck, Zap } from 'lucide-react';
+import { ChevronDown, Sparkles, ArrowRight, ShieldCheck, Zap, FileText } from 'lucide-react';
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -51,10 +51,31 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          {/* Astryx Precision Pill Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold tracking-wide border border-[#0DCB3D]/30 bg-[#0DCB3D]/10 text-[#0DCB3D] mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(13,203,61,0.2)]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#0DCB3D] animate-pulse shadow-[0_0_8px_#0DCB3D]" />
-            <span className="font-mono text-[11px] uppercase tracking-wider">The Proof-of-Possibility Experiment</span>
+          {/* Top Identity & Status Pill */}
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold tracking-wide border border-[#0DCB3D]/30 bg-[#0DCB3D]/10 text-[#0DCB3D] backdrop-blur-md shadow-[0_0_15px_rgba(13,203,61,0.2)]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0DCB3D] animate-pulse shadow-[0_0_8px_#0DCB3D]" />
+              <span className="font-mono text-[11px] uppercase tracking-wider">Henok Demissie • Proof-of-Possibility</span>
+            </div>
+            <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium border border-white/[0.08] bg-white/[0.04] text-slate-300">
+              <span>🇪🇹 Addis Ababa, Ethiopia</span>
+            </div>
+          </div>
+
+          {/* Verified Track Record Chips */}
+          <div className="flex flex-wrap items-center justify-center gap-2 max-w-2xl mx-auto mb-6">
+            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-mono font-medium bg-[#0DCB3D]/10 text-[#0DCB3D] border border-[#0DCB3D]/25">
+              ⚡ LLM Evaluator for Anthropic (Revelo)
+            </span>
+            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-mono font-medium bg-white/[0.05] text-slate-300 border border-white/[0.1]">
+              🚀 Afterquery (Y Combinator)
+            </span>
+            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-mono font-medium bg-white/[0.05] text-slate-300 border border-white/[0.1]">
+              🏆 Codeforces Expert (Top 5% Global)
+            </span>
+            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-mono font-medium bg-white/[0.05] text-slate-300 border border-white/[0.1]">
+              🎓 Ex-Head of Education @ A2SV
+            </span>
           </div>
 
           {/* Refined Headline — Bright Green with Gradiented Light (#0DCB3D) */}
@@ -66,13 +87,13 @@ export function HeroSection() {
             dream.
           </h1>
 
-          {/* Clean Subtitle */}
-          <p className="text-sm sm:text-base md:text-lg text-slate-400 max-w-xl mx-auto mb-8 leading-relaxed font-normal">
-            Building software, autonomous systems, and modern digital products. Support the vision with just $1, or hire me to bring your project to life.
+          {/* Authentic Personal Story Subtitle */}
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed font-normal">
+            I am a Software &amp; Machine Learning Engineer who evaluated frontier LLMs for Anthropic and optimized real-time systems for YC startups—currently unemployed with <strong className="text-white font-mono">$0.00</strong> in my account. This is a radical proof-of-possibility movement to rise from zero through global $1 backing, build transformative tech, and catalyze Ethiopia&apos;s tech ecosystem.
           </p>
 
-          {/* Astryx Styled CTAs */}
-          <div className="flex flex-row items-center justify-center gap-3 mb-12">
+          {/* Astryx Styled CTAs including Resume PDF */}
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
             <Button
               variant="primary"
               size="md"
@@ -90,22 +111,31 @@ export function HeroSection() {
             >
               <span>Hire Me</span>
             </Button>
+            <a
+              href="/Henok_Demissie_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-[#0DCB3D]/40 bg-[#0DCB3D]/10 hover:bg-[#0DCB3D]/20 text-[#0DCB3D] text-xs font-semibold tracking-wide transition-all shadow-sm cursor-pointer"
+            >
+              <FileText size={14} />
+              <span>Resume (PDF)</span>
+            </a>
           </div>
 
           {/* Astryx Sleek Telemetry Strip */}
           <div className="max-w-xl mx-auto rounded-2xl border border-white/[0.08] bg-[#0c111a]/70 backdrop-blur-xl p-4 shadow-xl">
             <div className="grid grid-cols-3 divide-x divide-white/[0.06] text-center">
               <div className="px-2">
-                <span className="block text-xs text-slate-400 font-medium uppercase tracking-wider mb-0.5">Micro Goal</span>
-                <span className="font-mono text-sm sm:text-base font-bold text-[#0DCB3D]">$1 Minimum</span>
+                <span className="block text-xs text-slate-400 font-medium uppercase tracking-wider mb-0.5">Starting Balance</span>
+                <span className="font-mono text-sm sm:text-base font-bold text-white">$0.00 (Live)</span>
               </div>
               <div className="px-2">
                 <span className="block text-xs text-slate-400 font-medium uppercase tracking-wider mb-0.5">Target</span>
-                <span className="font-mono text-sm sm:text-base font-bold text-white">$1,000,000</span>
+                <span className="font-mono text-sm sm:text-base font-bold text-[#0DCB3D]">$1,000,000</span>
               </div>
               <div className="px-2">
                 <span className="block text-xs text-slate-400 font-medium uppercase tracking-wider mb-0.5">Rails</span>
-                <span className="font-mono text-xs sm:text-sm font-semibold text-[#0DCB3D]">FedNow • BSC (BEP-20)</span>
+                <span className="font-mono text-xs sm:text-sm font-semibold text-[#0DCB3D]">Card • USDT (BEP-20)</span>
               </div>
             </div>
           </div>

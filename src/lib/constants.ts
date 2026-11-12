@@ -4,10 +4,15 @@ export const DONATION_AMOUNTS = [1, 2, 5, 10, 20, 50, 100];
 // ─── Site configuration ───────────────────────────────────────────────────────
 export const SITE_CONFIG = {
   name: 'One Dollar Project',
+  builderName: 'Henok Demissie',
+  builderTitle: 'Software Engineer & ML / Systems Engineer',
+  builderLocation: 'Addis Ababa, Ethiopia',
+  builderEmail: 'henokdemissie13@gmail.com',
+  resumeUrl: '/Henok_Demissie_Resume.pdf',
   slogan: 'ONE DOLLAR. ONE DREAM. MILLIONS OF POSSIBILITIES.',
   goal: 1_000_000,
   description:
-    'A premium donation platform and hire-me portfolio. Support a dream with just $1 or hire a world-class developer for your next project.',
+    'From $0 to a million-dollar dream. A transparent journey by Ethiopian software engineer Henok Demissie (Anthropic via Revelo, YC Afterquery, Codeforces Top 5%) proving talent has no borders.',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
   twitter: '@onedollarproject',
 };
@@ -152,18 +157,18 @@ export const SERVICES = [
   },
 ];
 
-// ─── Skills ───────────────────────────────────────────────────────────────────
+// ─── Skills & Proficiencies (from Henok Demissie Resume) ──────────────────────
 export const SKILLS = [
-  { name: 'Next.js', level: 95, category: 'Frontend' },
-  { name: 'React', level: 95, category: 'Frontend' },
-  { name: 'TypeScript', level: 90, category: 'Language' },
-  { name: 'Node.js', level: 88, category: 'Backend' },
-  { name: 'Python', level: 80, category: 'Language' },
-  { name: 'PostgreSQL', level: 85, category: 'Database' },
-  { name: 'Supabase', level: 90, category: 'Backend' },
-  { name: 'Tailwind CSS', level: 95, category: 'Frontend' },
-  { name: 'Framer Motion', level: 85, category: 'Frontend' },
-  { name: 'Docker', level: 75, category: 'DevOps' },
-  { name: 'Solidity', level: 70, category: 'Web3' },
-  { name: 'GraphQL', level: 78, category: 'API' },
+  { name: 'Python & FastAPI', level: 98, category: 'Backend & ML' },
+  { name: 'Distributed Systems & Raft', level: 92, category: 'Architecture' },
+  { name: 'LLM Prompting & RAG', level: 95, category: 'AI & ML' },
+  { name: 'C++ & Algorithmic Problem Solving', level: 96, category: 'Core & Systems' },
+  { name: 'Next.js 14 & React', level: 95, category: 'Frontend' },
+  { name: 'Redis & SimHash Caching', level: 94, category: 'Performance' },
+  { name: 'PostgreSQL & SQL', level: 90, category: 'Database' },
+  { name: 'AWS & Cloud Pipelines', level: 88, category: 'Cloud & DevOps' },
+  { name: 'Docker & Microservices', level: 90, category: 'DevOps' },
+  { name: 'Vector Search (FAISS, Pinecone)', level: 92, category: 'AI & ML' },
+  { name: 'PyTorch & Hugging Face', level: 86, category: 'AI & ML' },
+  { name: 'TypeScript & Node.js', level: 90, category: 'Full-Stack' },
 ];
