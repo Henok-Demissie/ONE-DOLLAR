@@ -78,7 +78,7 @@ export function HeroSection() {
           </div>
 
           {/* Refined Headline — Bright Green with Gradiented Light (#0DCB3D) */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.16] font-['Outfit'] mb-5">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.12] font-['Outfit'] mb-5">
             One dollar can help build a{' '}
             <span className="bg-gradient-to-r from-[#0DCB3D] via-[#1EE94F] to-[#2cf05d] bg-clip-text text-transparent font-extrabold drop-shadow-[0_0_25px_rgba(13,203,61,0.4)]">
               million-dollar
