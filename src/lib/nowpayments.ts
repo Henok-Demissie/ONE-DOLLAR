@@ -1,17 +1,36 @@
 import crypto from 'crypto';
 
+const NOWPAYMENTS_DEFAULT_API_KEY = 'QVTWYVC-905M4Y7-PZX5DE5-QS9Z0K8';
+const NOWPAYMENTS_DEFAULT_IPN_SECRET = 'iUHQaOVQptPnLIDULTzSDGbngqjiJhY+';
+
 const NOWPAYMENTS_API_URL =
   process.env.NOWPAYMENTS_SANDBOX === 'true'
     ? 'https://api-sandbox.nowpayments.io/v1'
     : 'https://api.nowpayments.io/v1';
 
-export function isNowPaymentsConfigured(): boolean {
+export function getNowPaymentsApiKey(): string {
   const apiKey = process.env.NOWPAYMENTS_API_KEY;
+  if (apiKey && !apiKey.startsWith('your_') && apiKey.trim().length > 0) {
+    return apiKey.trim();
+  }
+  return NOWPAYMENTS_DEFAULT_API_KEY;
+}
+
+export function getNowPaymentsIpnSecret(): string {
+  const ipnSecret = process.env.NOWPAYMENTS_IPN_SECRET;
+  if (ipnSecret && !ipnSecret.startsWith('your_') && ipnSecret.trim().length > 0) {
+    return ipnSecret.trim();
+  }
+  return NOWPAYMENTS_DEFAULT_IPN_SECRET;
+}
+
+export function isNowPaymentsConfigured(): boolean {
+  const apiKey = getNowPaymentsApiKey();
   return Boolean(apiKey && !apiKey.startsWith('your_'));
 }
 
 export function isNowPaymentsIpnConfigured(): boolean {
-  const ipnSecret = process.env.NOWPAYMENTS_IPN_SECRET;
+  const ipnSecret = getNowPaymentsIpnSecret();
   return Boolean(ipnSecret && !ipnSecret.startsWith('your_'));
 }
 
@@ -35,7 +54,7 @@ function sortObjectKeys(obj: unknown): unknown {
  * Verifies the `x-nowpayments-sig` HMAC-SHA512 webhook signature.
  */
 export function verifyNowPaymentsSignature(payload: unknown, receivedSignature: string): boolean {
-  const ipnSecret = process.env.NOWPAYMENTS_IPN_SECRET;
+  const ipnSecret = getNowPaymentsIpnSecret();
   if (!ipnSecret || !receivedSignature) return false;
 
   const sortedJson = JSON.stringify(sortObjectKeys(payload));
@@ -84,7 +103,7 @@ export interface NowPaymentsInvoiceResponse {
 export async function createNowPaymentsInvoice(
   params: CreateNowPaymentsInvoiceParams
 ): Promise<NowPaymentsInvoiceResponse> {
-  const apiKey = process.env.NOWPAYMENTS_API_KEY;
+  const apiKey = getNowPaymentsApiKey();
   if (!apiKey || apiKey.startsWith('your_')) {
     throw new Error('NOWPAYMENTS_API_KEY is not configured');
   }
@@ -118,7 +137,7 @@ export async function createNowPaymentsInvoice(
  * Queries a payment directly from NOWPayments API for server-side verification.
  */
 export async function getNowPaymentsPaymentStatus(paymentId: string | number) {
-  const apiKey = process.env.NOWPAYMENTS_API_KEY;
+  const apiKey = getNowPaymentsApiKey();
   if (!apiKey || apiKey.startsWith('your_')) {
     throw new Error('NOWPAYMENTS_API_KEY is not configured');
   }

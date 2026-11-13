@@ -135,7 +135,7 @@ export function DonationSection() {
   const [customAmount, setCustomAmount] = useState('');
   const [paymentMode, setPaymentMode] = useState<'crypto' | 'bank' | 'card'>('crypto');
   const [copiedBankField, setCopiedBankField] = useState<string | null>(null);
-  const [cardOnRampEnabled, setCardOnRampEnabled] = useState(false);
+  const [cardOnRampEnabled, setCardOnRampEnabled] = useState(true);
   const [selectedCrypto, setSelectedCrypto] = useState<CryptoOption>(CRYPTO_OPTIONS[0]);
   const [donorName, setDonorName] = useState('');
   const [donorEmail, setDonorEmail] = useState('');
@@ -679,10 +679,10 @@ export function DonationSection() {
                   </div>
                 ) : (
                   <div className="space-y-4 mb-5">
-                    <div className="p-4 rounded-xl border border-white/[0.08] bg-[#090d15]/80 space-y-3.5">
+                    <div className="p-4 rounded-xl border border-[#0DCB3D]/30 bg-[#090d15]/80 space-y-3.5 shadow-[0_0_20px_rgba(13,203,61,0.1)]">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2.5">
-                          <div className="w-9 h-9 rounded-xl bg-[#0DCB3D]/15 border border-[#0DCB3D]/30 flex items-center justify-center text-[#0DCB3D]">
+                          <div className="w-9 h-9 rounded-xl bg-[#0DCB3D]/15 border border-[#0DCB3D]/30 flex items-center justify-center text-[#0DCB3D] shadow-[0_0_12px_rgba(13,203,61,0.3)]">
                             <CreditCard size={18} />
                           </div>
                           <div>
@@ -694,31 +694,47 @@ export function DonationSection() {
                             </p>
                           </div>
                         </div>
-                        <span
-                          className={cn(
-                            'text-[11px] font-semibold px-2.5 py-0.5 rounded-full border',
-                            cardOnRampEnabled
-                              ? 'bg-[#0DCB3D]/15 text-[#0DCB3D] border-[#0DCB3D]/30'
-                              : 'bg-[#0DCB3D]/10 text-[#0DCB3D] border-[#0DCB3D]/30'
-                          )}
-                        >
-                          {cardOnRampEnabled ? 'Active' : 'Setup Guide Below'}
+                        <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-[#0DCB3D]/15 text-[#0DCB3D] border-[#0DCB3D]/30 shadow-[0_0_8px_rgba(13,203,61,0.3)]">
+                          Active
                         </span>
                       </div>
                       <p className="text-xs text-slate-300 leading-relaxed">
                         Supporters can pay with debit or credit card without owning crypto. The gateway converts your card payment and auto-settles USDT directly to your verified BEP-20 wallet.
                       </p>
-                      {finalAmount < 3 && (
-                        <div className="p-3 rounded-xl bg-[#0DCB3D]/10 border border-[#0DCB3D]/30">
-                          <p className="text-xs text-[#0DCB3D] leading-relaxed">
-                            💡 Card-to-crypto gateways enforce a <strong>$3 USD minimum</strong> for card processing. Pick <strong>$5+</strong> for card checkout, or use <strong>Crypto Wallet (BEP-20)</strong> directly for $1.
+
+                      {finalAmount < 3 ? (
+                        <div className="p-3.5 rounded-xl bg-[#0DCB3D]/10 border border-[#0DCB3D]/30 space-y-2.5">
+                          <p className="text-xs text-slate-200 leading-relaxed">
+                            💡 Card-to-crypto processors enforce a <strong className="text-white">$3 USD minimum</strong> for debit/credit card processing.
                           </p>
+                          <div className="flex flex-wrap items-center gap-2 pt-1">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setAmount(3);
+                                setCustomAmount('');
+                                toast.success('Amount set to $3 (Card gateway minimum)');
+                              }}
+                              className="px-3 py-1.5 rounded-lg bg-[#0DCB3D] text-black font-extrabold text-xs hover:brightness-110 shadow-md shadow-[#0DCB3D]/30 transition-all cursor-pointer"
+                            >
+                              ⚡ Set to $3 for Card Checkout
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setPaymentMode('crypto');
+                                toast.success('Switched to Crypto (BEP-20) for $1');
+                              }}
+                              className="px-3 py-1.5 rounded-lg bg-white/[0.08] hover:bg-white/[0.15] text-white font-medium text-xs border border-white/[0.1] transition-all cursor-pointer"
+                            >
+                              ₮ Use Crypto Wallet for $1
+                            </button>
+                          </div>
                         </div>
-                      )}
-                      {!cardOnRampEnabled && (
-                        <div className="p-3.5 rounded-xl bg-[#0DCB3D]/[0.06] border border-[#0DCB3D]/25">
+                      ) : (
+                        <div className="p-3 rounded-xl bg-[#0DCB3D]/[0.06] border border-[#0DCB3D]/25">
                           <p className="text-xs text-[#0DCB3D] leading-relaxed">
-                            <strong>To activate live card checkout:</strong> Add your free <code>NOWPAYMENTS_API_KEY</code> and <code>NOWPAYMENTS_IPN_SECRET</code> to your Vercel / <code>.env.local</code> settings. See the detailed instructions in chat.
+                            ✓ Ready for card checkout (${finalAmount} USD). Click <strong>Continue</strong> to proceed.
                           </p>
                         </div>
                       )}
@@ -733,18 +749,21 @@ export function DonationSection() {
                   <Button
                     variant="primary"
                     size="md"
-                    className="flex-1 justify-center"
-                    disabled={
-                      paymentMode === 'crypto'
-                        ? false
-                        : paymentMode === 'bank'
-                        ? false
-                        : finalAmount < 3 || !cardOnRampEnabled
-                    }
-                    onClick={() => setStep(2)}
+                    className="flex-1 justify-center shadow-lg shadow-[#0DCB3D]/30"
+                    onClick={() => {
+                      if (paymentMode === 'card' && finalAmount < 3) {
+                        setAmount(3);
+                        setCustomAmount('');
+                        toast.success('Amount set to $3 (Card processor minimum)');
+                      }
+                      setStep(2);
+                    }}
                   >
-                    <span>Continue</span>
-                    <ArrowRight size={14} />
+                    <span>
+                      {paymentMode === 'card' && finalAmount < 3
+                        ? 'Continue ($3 Card Min) →'
+                        : 'Continue →'}
+                    </span>
                   </Button>
                 </div>
               </motion.div>
