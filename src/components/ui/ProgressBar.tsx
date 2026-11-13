@@ -10,6 +10,7 @@ interface ProgressBarProps {
   label?: string;
   showLabel?: boolean;
   size?: 'sm' | 'md' | 'lg';
+  compact?: boolean;
   className?: string;
 }
 
@@ -26,6 +27,7 @@ export function ProgressBar({
   label,
   showLabel = true,
   size = 'md',
+  compact = false,
   className,
 }: ProgressBarProps) {
   const clamped = Math.min(100, Math.max(0, value));
@@ -33,11 +35,11 @@ export function ProgressBar({
   return (
     <div className={cn('w-full', className)}>
       {showLabel && (
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-sm font-medium text-gray-300">
+        <div className={cn('flex items-center justify-between', compact ? 'mb-1.5' : 'mb-2')}>
+          <span className={cn('font-medium text-slate-300', compact ? 'text-xs' : 'text-sm')}>
             {label || 'Goal Progress'}
           </span>
-          <span className="text-sm font-bold text-[#0DCB3D] font-mono drop-shadow-[0_0_8px_rgba(13,203,61,0.5)]">
+          <span className={cn('font-bold text-[#0DCB3D] font-mono drop-shadow-[0_0_8px_rgba(13,203,61,0.5)]', compact ? 'text-xs' : 'text-sm')}>
             {clamped.toFixed(1)}%
           </span>
         </div>
@@ -46,7 +48,7 @@ export function ProgressBar({
       <div
         className={cn(
           'w-full overflow-hidden rounded-full bg-[#0d1219] border border-white/[0.08]',
-          sizeClasses[size]
+          compact ? 'h-2' : sizeClasses[size]
         )}
       >
         <motion.div
@@ -65,9 +67,9 @@ export function ProgressBar({
       </div>
 
       {(raised !== undefined || goal !== undefined) && (
-        <div className="flex items-center justify-between mt-1.5 font-mono">
+        <div className={cn('flex items-center justify-between font-mono', compact ? 'mt-1' : 'mt-1.5')}>
           {raised !== undefined && (
-            <span className="text-xs text-slate-400 font-sans">
+            <span className={cn('text-slate-400 font-sans', compact ? 'text-[11px]' : 'text-xs')}>
               Raised:{' '}
               <span className="text-[#0DCB3D] font-mono font-bold drop-shadow-[0_0_8px_rgba(13,203,61,0.4)]">
                 ${raised.toLocaleString()}
@@ -75,7 +77,7 @@ export function ProgressBar({
             </span>
           )}
           {goal !== undefined && (
-            <span className="text-xs text-slate-400 font-sans">
+            <span className={cn('text-slate-400 font-sans', compact ? 'text-[11px]' : 'text-xs')}>
               Goal: <span className="text-white font-mono font-semibold">${goal.toLocaleString()}</span>
             </span>
           )}

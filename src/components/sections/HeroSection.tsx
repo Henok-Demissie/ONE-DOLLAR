@@ -91,14 +91,15 @@ export function HeroSection() {
             I am an AI &amp; Software Engineer who built for Silicon Valley and YC startups—currently standing at <strong className="text-white font-mono">$0.00</strong> in Addis Ababa. This is a radical movement to prove talent has no borders with $1 micro-backing, build transformative ventures, and elevate Ethiopia&apos;s tech industry.
           </p>
 
-          {/* Campaign Goal Progress Bar — Featured in Hero */}
-          <div className="max-w-xl mx-auto rounded-2xl border border-white/[0.08] bg-[#0c111a]/85 backdrop-blur-xl p-5 sm:p-6 shadow-2xl shadow-black/60 hover:border-[#0DCB3D]/30 transition-all text-left mb-8">
+          {/* Campaign Goal Progress Bar — Sleek Low-Profile Hero Card */}
+          <div className="max-w-lg mx-auto rounded-xl border border-white/[0.08] bg-[#0c111a]/85 backdrop-blur-xl py-2.5 px-4 sm:px-5 shadow-xl shadow-black/50 hover:border-[#0DCB3D]/30 transition-all text-left mb-7">
             <ProgressBar
               value={stats.goalProgress}
               raised={stats.totalRaised}
               goal={stats.goalAmount}
               label="Campaign Goal Progress"
-              size="md"
+              compact
+              size="sm"
             />
           </div>
 
