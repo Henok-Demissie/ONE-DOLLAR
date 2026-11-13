@@ -5,7 +5,7 @@ import { getWalletAddress } from '@/lib/crypto-info';
 import { getRateLimit, getClientIp } from '@/lib/rate-limit';
 import crypto from 'crypto';
 
-const VALID_AMOUNTS = [1, 2, 5, 10, 20, 50, 100];
+const VALID_AMOUNTS = [1, 2, 5, 10, 20, 50, 100, 500, 1000];
 
 const createDonationSchema = z.object({
   amount_usd: z

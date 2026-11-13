@@ -426,9 +426,10 @@ export function DonationSection() {
                   <span className="text-xs text-slate-400 font-medium">USD Equivalent</span>
                 </div>
 
-                <div className="grid grid-cols-4 gap-2.5 mb-5">
+                <div className="grid grid-cols-3 gap-2.5 mb-5">
                   {DONATION_AMOUNTS.map((a) => {
                     const isSelected = amount === a && !customAmount;
+                    const label = a >= 1000 ? `$${a / 1000}k` : `$${a}`;
                     return (
                       <button
                         key={a}
@@ -438,13 +439,13 @@ export function DonationSection() {
                           setCustomAmount('');
                         }}
                         className={cn(
-                          'py-3.5 rounded-xl font-mono font-bold text-sm border transition-all duration-200 cursor-pointer',
+                          'py-3 rounded-xl font-mono font-bold text-sm border transition-all duration-200 cursor-pointer',
                           isSelected
                             ? 'border-[#0DCB3D] bg-gradient-to-b from-[#0DCB3D]/25 via-[#0DCB3D]/15 to-[#0AA832]/10 text-[#0DCB3D] shadow-[0_0_24px_rgba(13,203,61,0.35)] ring-1 ring-[#0DCB3D]/50'
                             : 'border-white/[0.08] text-slate-300 hover:border-[#0DCB3D]/30 hover:text-white bg-white/[0.02] hover:bg-white/[0.04]'
                         )}
                       >
-                        ${a}
+                        {label}
                       </button>
                     );
                   })}
