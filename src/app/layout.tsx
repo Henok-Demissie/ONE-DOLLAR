@@ -9,14 +9,13 @@ export const metadata: Metadata = {
     template: '%s | One Dollar Project',
   },
   description:
-    'One dollar can help build a million-dollar dream. An audacious proof-of-possibility movement by Henok Demissie (Anthropic via Revelo, YC Afterquery, Codeforces Top 5%) rising from $0 to elevate Ethiopian and African tech.',
+    'One dollar can help build a million-dollar dream. From $1 to $1,000,000: an audacious proof-of-possibility movement by Ethiopian software engineer Henok Demissie to elevate African tech.',
   keywords: [
     'Henok Demissie',
     'One Dollar Project',
+    'From $1 to $1,000,000',
     'AI Engineer',
     'Ethiopian Tech',
-    'Anthropic',
-    'Y Combinator',
     'Codeforces Expert',
     'Software Engineer',
     'Micro Donations',
