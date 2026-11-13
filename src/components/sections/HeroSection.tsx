@@ -1,12 +1,32 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
-import { ChevronDown, Sparkles, ArrowRight, ShieldCheck, Zap, FileText } from 'lucide-react';
+import { ProgressBar } from '@/components/ui/ProgressBar';
+import { ChevronDown, ArrowRight, FileText } from 'lucide-react';
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const [stats, setStats] = useState({
+    totalRaised: 0,
+    goalAmount: 1000000,
+    goalProgress: 0,
+  });
+
+  useEffect(() => {
+    fetch('/api/public/stats')
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        if (data && typeof data.total_raised_usd === 'number') {
+          const totalRaised = data.total_raised_usd;
+          const goalAmount = data.goal_amount ?? 1000000;
+          const goalProgress = goalAmount > 0 ? (totalRaised / goalAmount) * 100 : 0;
+          setStats({ totalRaised, goalAmount, goalProgress });
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   const scrollToNext = () => {
     const stats = document.getElementById('stats');
@@ -51,31 +71,10 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          {/* Top Identity & Status Pill */}
-          <div className="inline-flex flex-wrap items-center justify-center gap-2 mb-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold tracking-wide border border-[#0DCB3D]/30 bg-[#0DCB3D]/10 text-[#0DCB3D] backdrop-blur-md shadow-[0_0_15px_rgba(13,203,61,0.2)]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0DCB3D] animate-pulse shadow-[0_0_8px_#0DCB3D]" />
-              <span className="font-mono text-[11px] uppercase tracking-wider">Henok Demissie • Proof-of-Possibility</span>
-            </div>
-            <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium border border-white/[0.08] bg-white/[0.04] text-slate-300">
-              <span>🇪🇹 Addis Ababa, Ethiopia</span>
-            </div>
-          </div>
-
-          {/* Verified Track Record Chips */}
-          <div className="flex flex-wrap items-center justify-center gap-2 max-w-2xl mx-auto mb-6">
-            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-mono font-medium bg-[#0DCB3D]/10 text-[#0DCB3D] border border-[#0DCB3D]/25">
-              ⚡ LLM Evaluator for Anthropic (Revelo)
-            </span>
-            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-mono font-medium bg-white/[0.05] text-slate-300 border border-white/[0.1]">
-              🚀 Afterquery (Y Combinator)
-            </span>
-            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-mono font-medium bg-white/[0.05] text-slate-300 border border-white/[0.1]">
-              🏆 Codeforces Expert (Top 5% Global)
-            </span>
-            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-mono font-medium bg-white/[0.05] text-slate-300 border border-white/[0.1]">
-              🎓 Ex-Head of Education @ A2SV
-            </span>
+          {/* Top Single Focus Badge — Replaces the duplicated chips */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold tracking-wide border border-[#0DCB3D]/30 bg-[#0DCB3D]/10 text-[#0DCB3D] mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(13,203,61,0.2)]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0DCB3D] animate-pulse shadow-[0_0_8px_#0DCB3D]" />
+            <span className="font-mono text-[11px] uppercase tracking-wider">Henok Demissie • Proof-of-Possibility Experiment</span>
           </div>
 
           {/* Refined Headline — Bright Green with Gradiented Light (#0DCB3D) */}
@@ -89,11 +88,22 @@ export function HeroSection() {
 
           {/* Authentic Personal Story Subtitle */}
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed font-normal">
-            I am a Software &amp; Machine Learning Engineer who evaluated frontier LLMs for Anthropic and optimized real-time systems for YC startups—currently unemployed with <strong className="text-white font-mono">$0.00</strong> in my account. This is a radical proof-of-possibility movement to rise from zero through global $1 backing, build transformative tech, and catalyze Ethiopia&apos;s tech ecosystem.
+            I am an AI &amp; Software Engineer who built for Silicon Valley and YC startups—currently standing at <strong className="text-white font-mono">$0.00</strong> in Addis Ababa. This is a radical movement to prove talent has no borders with $1 micro-backing, build transformative ventures, and elevate Ethiopia&apos;s tech industry.
           </p>
 
+          {/* Campaign Goal Progress Bar — Featured in Hero */}
+          <div className="max-w-xl mx-auto rounded-2xl border border-white/[0.08] bg-[#0c111a]/85 backdrop-blur-xl p-5 sm:p-6 shadow-2xl shadow-black/60 hover:border-[#0DCB3D]/30 transition-all text-left mb-8">
+            <ProgressBar
+              value={stats.goalProgress}
+              raised={stats.totalRaised}
+              goal={stats.goalAmount}
+              label="Campaign Goal Progress"
+              size="md"
+            />
+          </div>
+
           {/* Astryx Styled CTAs including Resume PDF */}
-          <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
             <Button
               variant="primary"
               size="md"
